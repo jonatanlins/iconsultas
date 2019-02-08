@@ -3,7 +3,7 @@ import React from 'react';
 function Pesquisa () {
   return (
     <div>
-      Pesquisa
+      <h1>Pesquisa</h1>
     </div>
   )
 }

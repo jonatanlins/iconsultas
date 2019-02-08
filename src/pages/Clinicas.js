@@ -3,7 +3,7 @@ import React from 'react';
 function Clínicas () {
   return (
     <div>
-      Clínicas
+      <h1>Clínicas</h1>
     </div>
   )
 }

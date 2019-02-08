@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function Tutorial () {
   return (
     <div>
-      Tutorial
+      <h1>Tutorial</h1>
       <Link to="/cidades">cidades</Link>
     </div>
   )
