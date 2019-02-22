@@ -42,7 +42,14 @@ function Header ({ navBarContent, searchBar }) {
       <Modal
         active={citySelectionState}
         close={() => setCitySelectionState(false)}
-        content={[]}
+        content={[
+          {name:'Recife', action: () => 'recife'},
+          {name:'Gravatá', action: () => 'gravata'},
+          {name:'Caruaru', action: () => 'caruaru'},
+          {name:'Santa Cruz do Capibaribe', action: () => 'santacruz'},
+          {name:'Palmares', action: () => 'palmares'},
+          {name:'Petrolina', action: () => 'petrolina'},
+        ]}
       />
     </header>
   )

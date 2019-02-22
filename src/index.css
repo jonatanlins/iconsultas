@@ -133,9 +133,12 @@ h1.pageTitle {
   overflow: hidden;
   text-overflow: ellipsis;
   transition: all .2s ease;
+  border:none;
+  font-size: 1em;
+  cursor: pointer;
 }
 
-.floatMenu a.item:hover,
+.floatMenu .item:hover,
 .floatMenu button.item:hover{
   padding-left: 3em;
 }

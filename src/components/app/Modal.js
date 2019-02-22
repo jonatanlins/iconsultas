@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function Modal ({ active, close }) {
+function Modal ({ active, close, content }) {
   return (
   <>
     <div className={`floatMenu ${active && 'active'}`}>
@@ -9,18 +9,11 @@ function Modal ({ active, close }) {
         <i className="icon-cancel"/>
       </div>
 
-      <a className="button item" href="categorias.html">Início</a>
-      <a className="button item" href="">Médicos</a>
-      <a className="button item" href="">Consultas Agendadas</a>
-      <a className="button item" href="">Consultas Realizadas</a>
-      <a className="button item" href="">Clínicas</a>
-      <a className="button item" href="">Farmácias</a>
-      <a className="button item" href="">Óticas</a>
-      <a className="button item" href="">Ofertas</a>
-      <a className="button item" href="">Meus Dados</a>
-      <a className="button item" href="">Sair</a>
+      {content.map(({name, action}, index) => (
+        <button className="button item" onClick={action} key={index}>{name}</button>
+      ))}
     </div>
-    <div className="overlay trigger" data-target=".mainMenu"></div>
+    <div className="overlay" onClick={close}></div>
     </>
   )
 }

@@ -13,7 +13,7 @@ function Categorias () {
   return (
     <div>
       <Header
-        navBarContent={['back', 'space', 'title', 'notifications', 'menu']}
+        navBarContent={['back', 'space', 'citySelection', 'notifications', 'menu']}
         searchBar={true}
       />
       
