@@ -9,6 +9,10 @@ body.background {
   background: #eee;
 }
 
+body.primaryColor {
+  background: #d40000;
+}
+
 body.padding {
   padding: 3em 0;
 }
@@ -18,13 +22,12 @@ img {
 }
 
 .mainHeader{
-  margin-top: 3em;
-  background: #8d2420;
+  background: #d40000;
   user-select: none;
 }
 
 .mainHeader .navBar{
-  background: #8d2420;
+  background: #d40000;
   display: flex;
   margin-bottom: 1em;
   position: fixed;
@@ -75,13 +78,21 @@ img {
   color: white;
   text-align: center;
   text-transform: uppercase;
-  font-size: 1em;
-  font-style: italic;
-  line-height: 3em;
+  font-size: 1.2em;
+  line-height: 2.5em;
   display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+h1.pageTitle {
+  background: #d40000;
+  margin: 0;
+  color: white;
+  font-style: italic;
+  font-size: 1.5em;
+  padding: 0 .5em .3em;
 }
   
 .floatMenu {
@@ -214,6 +225,166 @@ img {
   }
 }
 
+.notificationList {
+  margin: 0;
+  padding: 0;
+}
+
+.notificationList li a{
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+  color: #444;
+  transition: all .2s ease;
+}
+
+.notificationList li a:hover{
+  background-color: #ddd;
+}
+
+.notificationList li a .icon{
+  width: 2em;
+  height: 2em;
+  flex: 0 0 auto;
+  margin-right: 1em;
+}
+
+.doctorInfo{
+  text-align: center;
+  margin: 1em;
+}
+
+.doctorInfo .profilePicture{
+  border-radius: 999px;
+  width: 70%;
+}
+
+.doctorInfo .name {
+  font-style: italic;
+  color: #f50000;
+  font-weight: bold;
+  margin: .3em;
+}
+
+.doctorInfo p {
+  margin: 0;
+  color: #555;
+}
+
+.steps{
+  display: flex;
+  transition: all .5s ease;
+}
+
+.steps .step {
+  flex: 0 0 100%;
+}
+
+.steps .step h3 {
+  color: #f50000;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.steps .step ul {
+  margin: 2em 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #ddd;
+}
+
+.steps .step ul li {
+  position: relative;
+  padding: 1.5em;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+}
+
+.steps .step ul li .icon {
+  flex: 0 0 auto;
+  width: 2em;
+  margin-right: 1em;
+}
+
+.steps .step ul li.price h4 {
+  margin: 0;
+  color: #4cb906;
+}
+
+.steps .step ul li.price p {
+  margin: 0;
+  color: #444;
+}
+
+.steps .step ul li.moment span {
+  color: #555;
+  font-size: 1.2em;
+  flex: 1;
+  text-align: center;
+}
+
+.steps .step ul li.location {
+  color: #555;
+}
+
+.steps .step ul li input[type=radio] {
+  opacity: 0;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.steps .step ul li input[type=radio] ~ .check{
+  border: .1em solid #999;
+  border-radius: 99px;
+  padding: .2em;
+  margin-left: 1em;
+}
+
+.steps .step ul li input[type=radio] ~ .check:before{
+  content: '';
+  display: block;
+  font-size: 0.7em;
+  width: 1em;
+  flex: 0 0 auto;
+  border-radius: 99px;
+  height: 1em;
+}
+
+.steps .step ul li input[type=radio]:checked ~ .check:before{
+  background-color: #4cb906;
+}
+
+.steps .step ul li span.emphasis {
+  background-color: #4cb906;
+  flex: 0 0 auto;
+  padding: 0 1em;
+  border-radius: 99px;
+  color: white;
+}
+
+.steps .step button {
+  background-color: #4cb906;
+  border: none;
+  color: white;
+  padding: .5em;
+  font-size: 1.4em;
+  width: calc(100% - 2em);
+  margin: 1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .skipTutorialButton{
   position: fixed;
   top: 0;
@@ -224,22 +395,9 @@ img {
   text-transform: uppercase;
   padding: 1em;
 }
+
 .carousel > * {
   position: relative;
-}
-
-.continueButton{
-  position: absolute;
-  bottom: 2em;
-  right: 1em;
-  z-index: 10;
-  font-size: 1.5em;
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: .5em .8em;
-  background-color: #9a060c;
-  border-radius: 3px;
 }
 
 .tns-nav {
@@ -379,44 +537,165 @@ hr{
   margin-right: 1em;
 }
 
-.clinicList{
+.accordion .item {
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+
+.accordion .item .header {
+  position: relative;
+  color: #f50000;
+  font-size: 1.25em;
+  line-height: 1;
+  text-decoration: none;
+  padding: 1em;
+  font-style: italic;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+.accordion .item .trigger {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 4.5em;
+  z-index: 1;
+  opacity: 0;
+  margin: 0;
+}
+
+.accordion .item .trigger:hover ~ .header,
+.accordion .item .trigger:checked ~ .header {
+  background: #d40000;
+  color: white;
+}
+
+.accordion .item .trigger:hover ~ .header:before,
+.accordion .item .trigger:hover ~ .header:after,
+.accordion .item .trigger:checked ~ .header:before,
+.accordion .item .trigger:checked ~ .header:after {
+  background: white;
+}
+
+.accordion .item .header:before {
+  content: '';
+  position: absolute;
+  background: #555;
+  height: .2em;
+  width: .5em;
+  top: 1.5em;
+  right: 1.3em;
+  transform: rotate(40deg);
+  transition: all .2s ease; 
+}
+
+.accordion .item .header:after {
+  content: '';
+  position: absolute;
+  background: #555;
+  height: .2em;
+  width: .5em;
+  top: 1.5em;
+  right: 1em;
+  transform: rotate(-40deg);
+  transition: all .2s ease; 
+}
+
+.accordion .item .content {
+  color: #555;
+  padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transform: translateY(-1em);
+  transition: all .3s ease;
+}
+
+.accordion .item .content .callToAction {
+  display: inline-block;
+  margin: 0 auto;
+  color: white;
+  background: #178e0b;
+  padding: .3em .8em;
+  border-radius: .4em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.accordion .item .content .callToAction i {
+  color: #1df807;
+}
+
+.accordion .item .content .callToAction i:after {
+  content: '\e802';
+  font-family: "fontello";
+  font-style: normal;
+  margin-left: -0.5em;
+}
+
+.accordion .item .trigger:checked ~ .header:before {
+  transform: rotate(-40deg);
+}
+
+.accordion .item .trigger:checked ~ .header:after {
+  transform: rotate(40deg);
+}
+
+.accordion .item .trigger:checked ~ .content {
+  height: auto;
+  transform: translateY(0);
+  opacity: 1;
+  padding-bottom: 2em;
+}
+
+.listWithPrice{
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.clinicList a {
+.listWithPrice a {
   display: flex;
+  align-items: center;
   padding: 0.5em;
   border-bottom: 1px solid #ddd;
   text-decoration: none;
 }
 
-.clinicList a img {
+.listWithPrice a img {
   margin: 0 0.5em 0.5em 0;
   width: 6em;
   height: 6em;
-  border-radius: 99px;
+  border-radius: 0.5em;
 }
 
-.clinicList a .content .title {
+.listWithPrice a .content .title {
   color: #f50000;
   font-size: 1.2em;
   margin: 0 0 0.1em;
   font-style: italic;
 }
 
-.clinicList a .content p {
+.listWithPrice a .content p {
   color: #999;
   font-size: .9em;
   margin: 0.3em 0;
 }
 
-.clinicList a .content p i:before {
+.listWithPrice a .content p.emphasis {
+  font-weight: bold;
+}
+
+.listWithPrice a .content p i:before {
   margin: 0;
 }
 
-.clinicList a .content .price {
+.listWithPrice a .content .price {
   display: inline-block;
   background-color: #2ab618;
   color: white;
