@@ -1,26 +1,18 @@
 import React from 'react';
-import Carousel from 'nuka-carousel';
 
 import NavBar from './NavBar'
 
-import carouselImage1 from '../../assets/images/carrossel-01.png'
-import carouselImage2 from '../../assets/images/carrossel-02.png'
+import carouselImage1 from '../../assets/images/carrossel-01.jpg'
+import SearchBar from './SearchBar';
 
-function Header ({ navBarContent }) {
-  const carouselSettings = {
-    withoutControls: true,
-  };
-
+function Header ({ navBarContent, searchBar }) {
   return (
-    <header class="mainHeader">    
+    <header className="mainHeader">    
       <NavBar content={navBarContent}/>
 
-      <Carousel {...carouselSettings}>
-        <img class="logo" src={carouselImage1} alt="Logotipo do iConsultas"/>
-        <img class="logo" src={carouselImage2} alt="Logotipo do iConsultas"/>
-      </Carousel>
+      <img className="logo" src={carouselImage1} alt="Logotipo do iConsultas"/>
 
-      <hr></hr>
+      {searchBar ? <SearchBar/> : <hr/>}
     </header>
   )
 }
