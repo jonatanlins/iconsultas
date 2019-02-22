@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom'
 
-function NavBar ({ content, history }) {
+function NavBar ({ content, history, swicthMainMenu, swicthCitySelection }) {
   
   const elements = {
     back: (
@@ -10,7 +10,7 @@ function NavBar ({ content, history }) {
       </button>
     ),
     menu: (
-      <button className="trigger" data-target=".mainMenu">
+      <button onClick={swicthMainMenu}>
         <i className="icon-menu"></i>
       </button>
     ),
@@ -24,7 +24,7 @@ function NavBar ({ content, history }) {
       <span className="title">Bem-vindo!</span>
     ),
     citySelection: (
-      <button className="trigger title" data-target=".citySelection">
+      <button onClick={swicthCitySelection} className="title">
         <span className="cityName">Cidade</span>
         <i className="icon-down-dir"></i>
       </button>
