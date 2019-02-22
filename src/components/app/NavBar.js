@@ -1,43 +1,44 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom'
 
-function NavBar ({ content }) {
+function NavBar ({ content, history }) {
   
   const elements = {
     back: (
-      <button onClick="window.history.back()">
-        <i class="icon-left-open"/>
+      <button onClick={history.goBack}>
+        <i className="icon-left-open"/>
       </button>
     ),
     menu: (
-      <button class="trigger" data-target=".mainMenu">
-        <i class="icon-menu"></i>
+      <button className="trigger" data-target=".mainMenu">
+        <i className="icon-menu"></i>
       </button>
     ),
     notifications: (
       <a href="notificacoes.html">
-        <i class="icon-bell-alt" style="color: #f7c92b"></i>
-        <span class="counter">3</span>
+        <i className="icon-bell-alt" style={{color: '#f7c92b'}}></i>
+        <span className="counter">3</span>
       </a>
     ),
     title: (
-      <span class="title">Bem-vindo!</span>
+      <span className="title">Bem-vindo!</span>
     ),
     citySelection: (
-      <button class="trigger title" data-target=".citySelection">
-        <span class="cityName">Cidade</span>
-        <i class="icon-down-dir"></i>
+      <button className="trigger title" data-target=".citySelection">
+        <span className="cityName">Cidade</span>
+        <i className="icon-down-dir"></i>
       </button>
     ),
     space: (
-      <span class="space"></span>
+      <span className="space"></span>
     ),
   }
 
   return (
-    <div class="navBar">
+    <div className="navBar">
       {content.map(element => elements[element])}
     </div>
   )
 }
 
-export default NavBar;
+export default withRouter(NavBar);
