@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './fontello.css';
-import './fonts/fontello.css'
 import App from './App';
 import * as serviceWorker from './scripts/serviceWorker';
 
