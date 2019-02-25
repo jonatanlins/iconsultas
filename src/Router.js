@@ -3,11 +3,15 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import styled from 'styled-components'
 
-import Categorias from './pages/Categorias'
-import Cidades from './pages/Cidades'
-import Clinicas from './pages/Clinicas'
-import Pesquisa from './pages/Pesquisa'
+import Categories from './pages/Categories'
+import Cities from './pages/Cities'
+import Clinics from './pages/Clinics'
+import Search from './pages/Search'
 import Tutorial from './pages/Tutorial'
+import Notifications from './pages/Notifications'
+import Doctor from './pages/Doctor'
+import Doctors from './pages/Doctors'
+import Especialities from './pages/Especialities'
 
 function Router ({location}) {
   return (
@@ -22,14 +26,14 @@ function Router ({location}) {
             >
               <Switch location={location} className="route-section">
                 <Route path="/" exact component={Tutorial}/>
-
-                <Route path="/cidades" component={Cidades}/>
-
-                <Route path="/categorias" component={Categorias}/>
-
-                <Route path="/clinicas" component={Clinicas}/>
-                
-                <Route path="/pesquisa/:query" component={Pesquisa}/>
+                <Route path="/cidades" component={Cities}/>
+                <Route path="/categorias" component={Categories}/>
+                <Route path="/clinicas" component={Clinics}/>
+                <Route path="/pesquisa/:query" component={Search}/>
+                <Route path="/notificacoes" component={Notifications}/>
+                <Route path="/medicos" component={Doctors}/>
+                <Route path="/medico/:id" component={Doctor}/>
+                <Route path="/especialidades/:id" component={Especialities}/>
               </Switch>
             </CSSTransition>
           </TransitionGroup>

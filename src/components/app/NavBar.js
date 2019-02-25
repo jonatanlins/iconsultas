@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom'
+import {withRouter,Link} from 'react-router-dom'
 
 function NavBar ({ content, history, swicthMainMenu, swicthCitySelection }) {
   
@@ -15,10 +15,10 @@ function NavBar ({ content, history, swicthMainMenu, swicthCitySelection }) {
       </button>
     ),
     notifications: (
-      <a href="notificacoes.html">
+      <Link to="/notificacoes">
         <i className="icon-bell-alt" style={{color: '#f7c92b'}}></i>
         <span className="counter">3</span>
-      </a>
+      </Link>
     ),
     title: (
       <span className="title">Bem-vindo!</span>
