@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-import Header from '../components/app/Header'
+import Shell from '../components/app/Shell'
 
 function Cidades () {
   const cities = [
@@ -14,8 +14,7 @@ function Cidades () {
   ]
 
   return (
-    <div>
-      <Header carousel title="Bem Vindo!" navBarContent={['back', 'title', 'menu']}/>
+    <Shell carousel title="Bem Vindo!" navBarContent={['back', 'title', 'menu']}>
     
       <ul className="linkList">
         {cities.map(({code, name}, index) => 
@@ -24,7 +23,7 @@ function Cidades () {
           </li>
         )}
       </ul>
-    </div>
+    </Shell>
   )
 }
 

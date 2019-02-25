@@ -1,11 +1,10 @@
 import React from 'react';
 
-import Header from '../components/app/Header' 
+import Shell from '../components/app/Shell' 
 
 function Doctor () {
   return (
-    <div>
-      <Header navBarContent={['back', 'space', 'citySelection', 'notifications', 'menu']}/>
+    <Shell navBarContent={['back', 'space', 'citySelection', 'notifications', 'menu']}>
 
 
       <h1 className="pageTitle">Pediatria</h1>
@@ -81,7 +80,7 @@ function Doctor () {
           <button>Próximo</button>
         </div>
       </form>
-    </div>
+    </Shell>
   )
 }
 

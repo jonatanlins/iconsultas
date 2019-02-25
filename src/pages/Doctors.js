@@ -1,12 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 
-import Header from '../components/app/Header' 
+import Shell from '../components/app/Shell' 
 
 function Doctors () {
   return (
-    <div>
-      <Header navBarContent={['back', 'space', 'citySelection', 'notifications', 'menu']}/>
+    <Shell navBarContent={['back', 'space', 'citySelection', 'notifications', 'menu']}>
 
 
       <ul className="listWithPrice">
@@ -44,7 +43,7 @@ function Doctors () {
           </Link>
         </li>
       </ul>
-    </div>
+    </Shell>
   )
 }
 

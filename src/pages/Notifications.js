@@ -1,11 +1,10 @@
 import React from 'react';
 
-import Header from '../components/app/Header' 
+import Shell from '../components/app/Shell' 
 
 function Notifications () {
   return (
-    <div>
-      <Header title="Notificações" navBarContent={['back', 'title', 'space']}/>
+    <Shell title="Notificações" navBarContent={['back', 'title', 'space']}>
 
 
       <ul className="notificationList">
@@ -42,7 +41,7 @@ function Notifications () {
           </a>
         </li>
       </ul>
-    </div>
+    </Shell>
   )
 }
 

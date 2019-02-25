@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../components/app/Header'
+import Shell from '../components/app/Shell'
 import { Link } from 'react-router-dom'
 
 import phonendoscopeIcon from '../assets/icons/phonendoscope.png'
@@ -11,11 +11,10 @@ import flaskIcon from '../assets/icons/flask.png'
 
 function Categorias () {
   return (
-    <div>
-      <Header carousel
+    <Shell carousel
         navBarContent={['back', 'space', 'citySelection', 'notifications', 'menu']}
         searchBar={true}
-      />
+      >
       
       <div className="categoryButtons">
         <Link className="item" to="/medicos">
@@ -55,7 +54,7 @@ function Categorias () {
           <span className="label">Exames</span>
         </Link>
       </div>
-    </div>
+    </Shell>
   )
 }
 

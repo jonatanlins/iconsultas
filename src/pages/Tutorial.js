@@ -3,7 +3,7 @@ import Carousel from "tiny-slider-react"
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-
+import Page from '../components/app/Page'
 import carousel1 from '../assets/images/tutorial-01.png'
 import carousel2 from '../assets/images/tutorial-02.png'
 
@@ -21,18 +21,18 @@ function Tutorial () {
   }
 
   return (
-    <StyledWrapper>
+    <StyledPage>
       <Carousel settings={settings}>
         <img src={carousel1}/>
         <img src={carousel2}/>
       </Carousel>
       
-      <Link to="/cidades" replace className="skipTutorialButton">Continuar</Link>
-    </StyledWrapper>
+      <Link to="/cidades" className="skipTutorialButton">Continuar</Link>
+    </StyledPage>
   )
 }
 
-const StyledWrapper = styled.div`
+const StyledPage = styled(Page)`
 img {
   height: 100vh;
 }

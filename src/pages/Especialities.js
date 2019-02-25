@@ -1,11 +1,10 @@
 import React from 'react';
 
-import Header from '../components/app/Header' 
+import Shell from '../components/app/Shell' 
 
 function Especialities () {
   return (
-    <div>
-      <Header navBarContent={['back', 'space', 'citySelection', 'notifications', 'menu']}/>
+    <Shell navBarContent={['back', 'space', 'citySelection', 'notifications', 'menu']}>
 
 
       <div class="accordion">
@@ -58,7 +57,7 @@ function Especialities () {
           </div>
         </div>
       </div>
-    </div>
+    </Shell>
   )
 }
 
