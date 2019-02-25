@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components'
 
 import NavBar from './NavBar'
 
@@ -6,19 +7,19 @@ import carouselImage1 from '../../assets/images/carrossel-01.jpg'
 import SearchBar from './SearchBar';
 import Modal from './Modal';
 
-function Header ({ navBarContent, searchBar }) {
+function Header ({ navBarContent, searchBar, carousel }) {
   const [mainMenuState, setMainMenuState] = React.useState(false)
   const [citySelectionState, setCitySelectionState] = React.useState(false)
 
   return (
-    <header className="mainHeader">
+    <StyledHeader className="mainHeader">
       <NavBar
         content={navBarContent}
         swicthMainMenu={() => setMainMenuState(!mainMenuState)}
         swicthCitySelection={() => setCitySelectionState(!citySelectionState)}
       />
 
-      <img className="logo" src={carouselImage1} alt="Logotipo do iConsultas"/>
+      { carousel && <img className="logo" src={carouselImage1} alt="Logotipo do iConsultas"/> }
 
       {searchBar ? <SearchBar/> : <hr/>}
 
@@ -51,8 +52,12 @@ function Header ({ navBarContent, searchBar }) {
           {name:'Petrolina', action: () => 'petrolina'},
         ]}
       />
-    </header>
+    </StyledHeader>
   )
 }
+
+const StyledHeader = styled.header`
+  padding-top: 3em;
+`
 
 export default Header;

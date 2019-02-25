@@ -12,7 +12,7 @@ import flaskIcon from '../assets/icons/flask.png'
 function Categorias () {
   return (
     <div>
-      <Header
+      <Header carousel
         navBarContent={['back', 'space', 'citySelection', 'notifications', 'menu']}
         searchBar={true}
       />

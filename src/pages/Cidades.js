@@ -15,7 +15,7 @@ function Cidades () {
 
   return (
     <div>
-      <Header navBarContent={['back', 'title', 'menu']}/>
+      <Header carousel navBarContent={['back', 'title', 'menu']}/>
     
       <ul className="linkList">
         {cities.map(({code, name}, index) => 
