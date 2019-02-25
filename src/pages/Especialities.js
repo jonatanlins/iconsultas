@@ -5,7 +5,7 @@ import Header from '../components/app/Header'
 function Especialities () {
   return (
     <div>
-      <Header searchBar navBarContent={['back', 'space', 'citySelection', 'notifications', 'menu']}/>
+      <Header navBarContent={['back', 'space', 'citySelection', 'notifications', 'menu']}/>
 
 
       <div class="accordion">

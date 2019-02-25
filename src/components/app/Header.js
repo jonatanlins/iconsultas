@@ -7,7 +7,7 @@ import carouselImage1 from '../../assets/images/carrossel-01.jpg'
 import SearchBar from './SearchBar';
 import Modal from './Modal';
 
-function Header ({ navBarContent, searchBar, carousel, title }) {
+function Header ({ navBarContent, searchBar = true, carousel, title }) {
   const [mainMenuState, setMainMenuState] = React.useState(false)
   const [citySelectionState, setCitySelectionState] = React.useState(false)
 

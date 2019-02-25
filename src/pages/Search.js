@@ -5,7 +5,7 @@ import Header from '../components/app/Header'
 function Pesquisa () {
   return (
     <div>
-      <Header searchBar navBarContent={['back', 'space', 'citySelection', 'notifications', 'menu']}/>
+      <Header navBarContent={['back', 'space', 'citySelection', 'notifications', 'menu']}/>
 
       <ul class="linkList searchResults">
         <li><a href="">Dr. Luiz Bandim</a></li>

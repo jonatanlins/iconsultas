@@ -6,7 +6,7 @@ import Header from '../components/app/Header'
 function Clínicas () {
   return (
     <div>
-      <Header searchBar navBarContent={['back', 'space', 'citySelection', 'notifications', 'menu']}/>
+      <Header navBarContent={['back', 'space', 'citySelection', 'notifications', 'menu']}/>
 
 
       <ul className="listWithPrice">
