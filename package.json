@@ -2,7 +2,6 @@
   "name": "iconsultas",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://jonatanlins.github.io/iconsultas",
   "dependencies": {
     "nuka-carousel": "^4.4.7",
     "react": "^16.8.0",
