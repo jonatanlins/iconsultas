@@ -7,13 +7,14 @@ import carouselImage1 from '../../assets/images/carrossel-01.jpg'
 import SearchBar from './SearchBar';
 import Modal from './Modal';
 
-function Header ({ navBarContent, searchBar, carousel }) {
+function Header ({ navBarContent, searchBar, carousel, title }) {
   const [mainMenuState, setMainMenuState] = React.useState(false)
   const [citySelectionState, setCitySelectionState] = React.useState(false)
 
   return (
     <StyledHeader className="mainHeader">
       <NavBar
+      title={title}
         content={navBarContent}
         swicthMainMenu={() => setMainMenuState(!mainMenuState)}
         swicthCitySelection={() => setCitySelectionState(!citySelectionState)}

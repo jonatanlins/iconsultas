@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter,Link} from 'react-router-dom'
 
-function NavBar ({ content, history, swicthMainMenu, swicthCitySelection }) {
+function NavBar ({ content, history, swicthMainMenu, swicthCitySelection, title }) {
   
   const elements = {
     back: (
@@ -21,7 +21,7 @@ function NavBar ({ content, history, swicthMainMenu, swicthCitySelection }) {
       </Link>
     ),
     title: (
-      <span className="title">Bem-vindo!</span>
+      <span className="title">{title}</span>
     ),
     citySelection: (
       <button onClick={swicthCitySelection} className="title">
