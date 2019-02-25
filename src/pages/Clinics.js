@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 import Header from '../components/app/Header' 
 
@@ -10,7 +11,7 @@ function Clínicas () {
 
       <ul className="listWithPrice">
         <li>
-          <a href="especialidades.html">
+          <Link to="especialidades/3216">
             <img src="../assets/brands/santa-efigenia.png" alt="" className="logo"/>
             <div className="content">
               <h3 className="title">Hospital Santa Efigênia</h3>
@@ -19,10 +20,10 @@ function Clínicas () {
               <p><i className="icon-location"></i> 3,5Km</p>
               <span className="price">A partir de R$250 ou Convênio</span>
             </div>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="especialidades.html">
+          <Link to="especialidades/3216">
             <img src="../assets/brands/multmedica.png" alt="" className="logo"/>
             <div className="content">
               <h3 className="title">Clínica Multmedica</h3>
@@ -31,10 +32,10 @@ function Clínicas () {
               <p><i className="icon-location"></i> 4,0Km</p>
               <span className="price">A partir de R$250 ou Convênio</span>
             </div>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="especialidades.html">
+          <Link to="especialidades/3216">
             <img src="../assets/brands/maria-gertrudes.png" alt="" className="logo"/>
             <div className="content">
               <h3 className="title">Centro Médico Maria Gertrudes</h3>
@@ -43,10 +44,10 @@ function Clínicas () {
               <p><i className="icon-location"></i> 6,5Km</p>
               <span className="price">A partir de R$300</span>
             </div>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="especialidades.html">
+          <Link to="especialidades/3216">
             <img src="../assets/brands/3-marias.png" alt="" className="logo"/>
             <div className="content">
               <h3 className="title">Clínica 3 Marias</h3>
@@ -55,7 +56,7 @@ function Clínicas () {
               <p><i className="icon-location"></i> 6,5Km</p>
               <span className="price">A partir de R$250 ou Convênio</span>
             </div>
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
