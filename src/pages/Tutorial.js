@@ -21,18 +21,20 @@ function Tutorial () {
   }
 
   return (
-    <StyledPage>
+    <Page>
+      <StyledWrapper>
       <Carousel settings={settings}>
         <img src={carousel1}/>
         <img src={carousel2}/>
       </Carousel>
       
       <Link to="/cidades" className="skipTutorialButton">Continuar</Link>
-    </StyledPage>
+      </StyledWrapper>
+    </Page>
   )
 }
 
-const StyledPage = styled(Page)`
+const StyledWrapper = styled.div`
 img {
   height: 100vh;
 }
