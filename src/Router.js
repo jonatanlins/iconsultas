@@ -46,7 +46,7 @@ function Router ({location}) {
 const Wrapper = styled.div`
 .fade-appear,
 .fade-enter {
-  transform: translateX(-100%);
+  transform: translateX(100%);
   z-index: 1;
 }
 .fade-appear-active,
@@ -65,7 +65,7 @@ const Wrapper = styled.div`
 }
 
 .fade-exit.fade-exit-active {
-  transform: translateX(100%);
+  transform: translateX(-100%);
   transition: transform 500ms ease 10ms;
 }
 `
