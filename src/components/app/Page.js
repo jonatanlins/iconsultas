@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 
 function Page ({children}) {
   return (
@@ -9,30 +9,37 @@ function Page ({children}) {
   )
 }
 
-const StyledPage = styled.div`
-&.page-appear,
-&.page-enter {
-  transform: translateX(100%);
-  z-index: 1;
-}
-&.page-appear-active,
-&.page-enter.page-enter-active {
-  transform: translateX(0);
-  transition: transform 500ms ease;
+const animations = {
+  slideInRight: keyframes`
+   0% {
+      transform: translate3d(100%, 0, 0);
+      visibility: visible;
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  `,
+
+  slideOutLeft: keyframes`
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      visibility: hidden;
+      transform: translate3d(-100%, 0, 0);
+    }
+  `,
 }
 
+const StyledPage = styled.div`
+&.page-enter {
+  animation: ${props => animations[props.enterAnimation || 'slideInRight']} 500ms forwards;
+}
 &.page-exit {
-  transform: translateX(0);
+  animation: ${props => animations[props.exitAnimation || 'slideOutLeft']} 500ms forwards;
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-&.page-exit.page-exit-active {
-  transform: translateX(-100%);
-  transition: transform 500ms ease 10ms;
+  overflow: hidden;
 }
 `
 
