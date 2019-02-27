@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-import Shell from '../components/app/Shell'
+import Shell from '../components/app/Shell';
 
-function Cidades () {
+function Cidades() {
   const cities = [
     { code: 'recife', name: 'Recife' },
     { code: 'gravata', name: 'Gravatá' },
@@ -11,20 +11,23 @@ function Cidades () {
     { code: 'santacruz', name: 'Santa Cruz do Capibaribe' },
     { code: 'palmares', name: 'Palmares' },
     { code: 'petrolina', name: 'Petrolina' },
-  ]
+  ];
 
   return (
-    <Shell carousel title="Bem Vindo!" navBarContent={['back', 'title', 'menu']}>
-    
+    <Shell
+      carousel
+      title="Bem Vindo!"
+      navBarContent={['back', 'title', 'menu']}
+    >
       <ul className="linkList">
-        {cities.map(({code, name}, index) => 
+        {cities.map(({ code, name }, index) => (
           <li key={index}>
             <Link to={`categorias?cidade=${code}`}>{name}</Link>
           </li>
-        )}
+        ))}
       </ul>
     </Shell>
-  )
+  );
 }
 
 export default Cidades;

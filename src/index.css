@@ -1,4 +1,5 @@
-body, html{
+body,
+html {
   font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
   font-size: 16px;
@@ -21,12 +22,12 @@ img {
   max-width: 100%;
 }
 
-.mainHeader{
+.mainHeader {
   background: #d40000;
   user-select: none;
 }
 
-.mainHeader .navBar{
+.mainHeader .navBar {
   background: #d40000;
   display: flex;
   margin-bottom: 1em;
@@ -38,7 +39,7 @@ img {
 }
 
 .mainHeader .navBar a,
-.mainHeader .navBar button{
+.mainHeader .navBar button {
   cursor: pointer;
   position: relative;
   border: none;
@@ -49,31 +50,31 @@ img {
   width: 2em;
   text-align: center;
   padding: 0;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
 .mainHeader .navBar a:hover,
-.mainHeader .navBar button:hover{
+.mainHeader .navBar button:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.mainHeader .navBar * .counter{
+.mainHeader .navBar * .counter {
   position: absolute;
   top: 0.5em;
   right: 0.2em;
   background-color: #482ecc;
-  font-size: .7em;
-  padding: .2em;
+  font-size: 0.7em;
+  padding: 0.2em;
   line-height: 1em;
   min-width: 1em;
   border-radius: 99px;
 }
 
-.mainHeader .navBar .space{
+.mainHeader .navBar .space {
   width: 3em;
 }
 
-.mainHeader .navBar .title{
+.mainHeader .navBar .title {
   flex: 1;
   color: white;
   text-align: center;
@@ -92,9 +93,9 @@ h1.pageTitle {
   color: white;
   font-style: italic;
   font-size: 1.5em;
-  padding: 0 .5em .3em;
+  padding: 0 0.5em 0.3em;
 }
-  
+
 .floatMenu {
   display: flex;
   height: 0;
@@ -108,7 +109,7 @@ h1.pageTitle {
   z-index: 15;
 }
 
-.floatMenu + .overlay{
+.floatMenu + .overlay {
   position: fixed;
   z-index: 14;
   left: 0;
@@ -118,7 +119,7 @@ h1.pageTitle {
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   visibility: hidden;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
 .floatMenu .item {
@@ -132,14 +133,14 @@ h1.pageTitle {
   margin: 0 0 -1px;
   overflow: hidden;
   text-overflow: ellipsis;
-  transition: all .2s ease;
-  border:none;
+  transition: all 0.2s ease;
+  border: none;
   font-size: 1em;
   cursor: pointer;
 }
 
 .floatMenu .item:hover,
-.floatMenu button.item:hover{
+.floatMenu button.item:hover {
   padding-left: 3em;
 }
 
@@ -152,8 +153,8 @@ h1.pageTitle {
   cursor: pointer;
   position: absolute;
   font-size: 1.2em;
-  top: .5em;
-  right: .5em;
+  top: 0.5em;
+  right: 0.5em;
   background: white;
   color: #5948f9;
   height: 1.5em;
@@ -163,68 +164,110 @@ h1.pageTitle {
   border-radius: 99px;
   z-index: 1;
 }
-    
+
 .floatMenu.active {
   animation: 0.3s bounceInDown;
   display: flex;
   height: auto;
 }
-      
+
 .floatMenu.active .item {
   animation-name: bounceInDown;
-  animation-duration: 0.4s; 
+  animation-duration: 0.4s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
 
-.floatMenu.active + .overlay{
+.floatMenu.active + .overlay {
   visibility: visible;
   opacity: 1;
   transition: all 2s ease;
 }
 
-.floatMenu .item:nth-child(1) { animation-delay: 0.1s; }
-.floatMenu .item:nth-child(2) { animation-delay: 0.2s; }
-.floatMenu .item:nth-child(3) { animation-delay: 0.3s; }
-.floatMenu .item:nth-child(4) { animation-delay: 0.4s; }
-.floatMenu .item:nth-child(5) { animation-delay: 0.5s; }
-.floatMenu .item:nth-child(6) { animation-delay: 0.6s; }
-.floatMenu .item:nth-child(7) { animation-delay: 0.7s; }
-.floatMenu .item:nth-child(8) { animation-delay: 0.8s; }
-.floatMenu .item:nth-child(9) { animation-delay: 0.9s; }
-.floatMenu .item:nth-child(10) { animation-delay: 1.0s; }
-.floatMenu .item:nth-child(11) { animation-delay: 1.1s; }
-.floatMenu .item:nth-child(12) { animation-delay: 1.2s; }
-.floatMenu .item:nth-child(13) { animation-delay: 1.3s; }
-.floatMenu .item:nth-child(14) { animation-delay: 1.4s; }
-.floatMenu .item:nth-child(15) { animation-delay: 1.5s; }
-.floatMenu .item:nth-child(16) { animation-delay: 1.6s; }
-.floatMenu .item:nth-child(17) { animation-delay: 1.7s; }
-.floatMenu .item:nth-child(18) { animation-delay: 1.8s; }
-.floatMenu .item:nth-child(19) { animation-delay: 1.9s; }
+.floatMenu .item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.floatMenu .item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.floatMenu .item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.floatMenu .item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.floatMenu .item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.floatMenu .item:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.floatMenu .item:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.floatMenu .item:nth-child(8) {
+  animation-delay: 0.8s;
+}
+.floatMenu .item:nth-child(9) {
+  animation-delay: 0.9s;
+}
+.floatMenu .item:nth-child(10) {
+  animation-delay: 1s;
+}
+.floatMenu .item:nth-child(11) {
+  animation-delay: 1.1s;
+}
+.floatMenu .item:nth-child(12) {
+  animation-delay: 1.2s;
+}
+.floatMenu .item:nth-child(13) {
+  animation-delay: 1.3s;
+}
+.floatMenu .item:nth-child(14) {
+  animation-delay: 1.4s;
+}
+.floatMenu .item:nth-child(15) {
+  animation-delay: 1.5s;
+}
+.floatMenu .item:nth-child(16) {
+  animation-delay: 1.6s;
+}
+.floatMenu .item:nth-child(17) {
+  animation-delay: 1.7s;
+}
+.floatMenu .item:nth-child(18) {
+  animation-delay: 1.8s;
+}
+.floatMenu .item:nth-child(19) {
+  animation-delay: 1.9s;
+}
 
 @keyframes bounceInDown {
-  0%, 60%, 75%, 90%, 100% {
-    animation-timing-function: cubic-bezier(.215,.61,.355,1)
+  0%,
+  60%,
+  75%,
+  90%,
+  100% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
   0% {
     opacity: 0;
-    transform: translate3d(0,-30px,0)
+    transform: translate3d(0, -30px, 0);
   }
 
   60% {
     opacity: 1;
-    transform: translate3d(0,3px,0)
+    transform: translate3d(0, 3px, 0);
   }
 
   80% {
-    transform: translate3d(0,-2px,0)
+    transform: translate3d(0, -2px, 0);
   }
 
   100% {
     opacity: 1;
-    transform: none
+    transform: none;
   }
 }
 
@@ -233,33 +276,33 @@ h1.pageTitle {
   padding: 0;
 }
 
-.notificationList li a{
+.notificationList li a {
   display: flex;
   align-items: center;
   padding: 1em;
   border-bottom: 1px solid #ddd;
   text-decoration: none;
   color: #444;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
-.notificationList li a:hover{
+.notificationList li a:hover {
   background-color: #ddd;
 }
 
-.notificationList li a .icon{
+.notificationList li a .icon {
   width: 2em;
   height: 2em;
   flex: 0 0 auto;
   margin-right: 1em;
 }
 
-.doctorInfo{
+.doctorInfo {
   text-align: center;
   margin: 1em;
 }
 
-.doctorInfo .profilePicture{
+.doctorInfo .profilePicture {
   border-radius: 999px;
   width: 70%;
 }
@@ -268,7 +311,7 @@ h1.pageTitle {
   font-style: italic;
   color: #f50000;
   font-weight: bold;
-  margin: .3em;
+  margin: 0.3em;
 }
 
 .doctorInfo p {
@@ -276,9 +319,9 @@ h1.pageTitle {
   color: #555;
 }
 
-.steps{
+.steps {
   display: flex;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
 
 .steps .step {
@@ -334,7 +377,7 @@ h1.pageTitle {
   color: #555;
 }
 
-.steps .step ul li input[type=radio] {
+.steps .step ul li input[type='radio'] {
   opacity: 0;
   position: absolute;
   display: block;
@@ -347,14 +390,14 @@ h1.pageTitle {
   cursor: pointer;
 }
 
-.steps .step ul li input[type=radio] ~ .check{
-  border: .1em solid #999;
+.steps .step ul li input[type='radio'] ~ .check {
+  border: 0.1em solid #999;
   border-radius: 99px;
-  padding: .2em;
+  padding: 0.2em;
   margin-left: 1em;
 }
 
-.steps .step ul li input[type=radio] ~ .check:before{
+.steps .step ul li input[type='radio'] ~ .check:before {
   content: '';
   display: block;
   font-size: 0.7em;
@@ -364,7 +407,7 @@ h1.pageTitle {
   height: 1em;
 }
 
-.steps .step ul li input[type=radio]:checked ~ .check:before{
+.steps .step ul li input[type='radio']:checked ~ .check:before {
   background-color: #4cb906;
 }
 
@@ -380,7 +423,7 @@ h1.pageTitle {
   background-color: #4cb906;
   border: none;
   color: white;
-  padding: .5em;
+  padding: 0.5em;
   font-size: 1.4em;
   width: calc(100% - 2em);
   margin: 1em;
@@ -388,7 +431,7 @@ h1.pageTitle {
   cursor: pointer;
 }
 
-.skipTutorialButton{
+.skipTutorialButton {
   position: fixed;
   top: 0;
   right: 0;
@@ -427,24 +470,24 @@ h1.pageTitle {
   background-color: #666;
 }
 
-.mainHeader .logo{
+.mainHeader .logo {
   width: 100%;
   max-width: 260px;
   margin: 0 auto;
   display: block;
 }
 
-hr{
+hr {
   display: block;
   width: 100%;
   margin: 0;
   height: 1em;
-  background: linear-gradient(50deg, #f3ce33 50%, #e5a430 50%); 
+  background: linear-gradient(50deg, #f3ce33 50%, #e5a430 50%);
 }
 
 .searchForm {
-  background: linear-gradient(50deg, #f3ce33 50%, #e5a430 50%); 
-  padding: .7em 2em;
+  background: linear-gradient(50deg, #f3ce33 50%, #e5a430 50%);
+  padding: 0.7em 2em;
   position: relative;
 }
 
@@ -453,11 +496,11 @@ hr{
   line-height: 1.6;
   padding: 0 2em;
   font-size: 1em;
-  border-radius: .3em;
+  border-radius: 0.3em;
   border: none;
   box-sizing: border-box;
   background: url(./assets/icons/magnifier.png) white no-repeat;
-  background-position: 0.5em; 
+  background-position: 0.5em;
   background-size: 1em;
   transition: all 0.2s ease;
 }
@@ -479,7 +522,7 @@ hr{
   box-sizing: border-box;
   transition: all 0.2s ease;
   cursor: pointer;
-  box-shadow: 0 .2em .5em rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.3);
 }
 
 .searchForm .input:focus,
@@ -508,7 +551,7 @@ hr{
   font-weight: bold;
   font-style: italic;
   border-bottom: 1px solid #ddd;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
 .linkList li a:after {
@@ -517,8 +560,8 @@ hr{
   float: right;
   color: #555;
   font-size: 1.2em;
-  margin-right: .5em;
-  transition: all .2s ease;
+  margin-right: 0.5em;
+  transition: all 0.2s ease;
 }
 
 .linkList li a:hover {
@@ -553,7 +596,7 @@ hr{
   text-decoration: none;
   padding: 1em;
   font-style: italic;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
@@ -584,24 +627,24 @@ hr{
   content: '';
   position: absolute;
   background: #555;
-  height: .2em;
-  width: .5em;
+  height: 0.2em;
+  width: 0.5em;
   top: 1.5em;
   right: 1.3em;
   transform: rotate(40deg);
-  transition: all .2s ease; 
+  transition: all 0.2s ease;
 }
 
 .accordion .item .header:after {
   content: '';
   position: absolute;
   background: #555;
-  height: .2em;
-  width: .5em;
+  height: 0.2em;
+  width: 0.5em;
   top: 1.5em;
   right: 1em;
   transform: rotate(-40deg);
-  transition: all .2s ease; 
+  transition: all 0.2s ease;
 }
 
 .accordion .item .content {
@@ -614,7 +657,7 @@ hr{
   height: 0;
   opacity: 0;
   transform: translateY(-1em);
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .accordion .item .content .callToAction {
@@ -622,8 +665,8 @@ hr{
   margin: 0 auto;
   color: white;
   background: #178e0b;
-  padding: .3em .8em;
-  border-radius: .4em;
+  padding: 0.3em 0.8em;
+  border-radius: 0.4em;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
@@ -636,7 +679,7 @@ hr{
 
 .accordion .item .content .callToAction i:after {
   content: '\e802';
-  font-family: "fontello";
+  font-family: 'fontello';
   font-style: normal;
   margin-left: -0.5em;
 }
@@ -656,7 +699,7 @@ hr{
   padding-bottom: 2em;
 }
 
-.listWithPrice{
+.listWithPrice {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -686,7 +729,7 @@ hr{
 
 .listWithPrice a .content p {
   color: #999;
-  font-size: .9em;
+  font-size: 0.9em;
   margin: 0.3em 0;
 }
 
@@ -702,43 +745,43 @@ hr{
   display: inline-block;
   background-color: #2ab618;
   color: white;
-  font-size: .9em;
+  font-size: 0.9em;
   border-radius: 99px;
   padding: 0.3em 1em;
   margin: 0.1em 0;
 }
 
-.categoryButtons{
+.categoryButtons {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0;
-  padding: .5em .5em 0;
+  padding: 0.5em 0.5em 0;
 }
 
-.categoryButtons .item{
+.categoryButtons .item {
   display: block;
   box-sizing: border-box;
   flex: 1 1 auto;
   width: 42%;
   height: calc(50vw - 2em);
-  margin: .5em;
-  padding: .5em;
-  border-radius: .5em;
+  margin: 0.5em;
+  padding: 0.5em;
+  border-radius: 0.5em;
   background-color: white;
   text-decoration: none;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
-.categoryButtons .item .label{
+.categoryButtons .item .label {
   display: block;
   color: #f50000;
   font-weight: bold;
   font-style: italic;
 }
 
-.categoryButtons .item .icon{
+.categoryButtons .item .icon {
   width: 55%;
   margin: 10px auto;
   display: block;
@@ -770,7 +813,7 @@ hr{
 
 .moreCategoryButtons a img {
   background-color: white;
-  border-radius: .5em;
+  border-radius: 0.5em;
   padding: 1.3em;
   box-sizing: border-box;
 }
@@ -778,14 +821,14 @@ hr{
 .moreCategoryButtons:not(.tns-slider) {
   display: flex;
   flex-wrap: wrap;
-  padding: .5em;
+  padding: 0.5em;
 }
 
 .moreCategoryButtons:not(.tns-slider) a {
   display: flex;
   flex: 1 1 30%;
   flex-direction: column;
-  margin: .5em;
+  margin: 0.5em;
 }
 
 .tutorialCarousel {
@@ -797,16 +840,16 @@ hr{
   width: 100vw;
 }
 
-.owl-carousel .owl-nav button{
+.owl-carousel .owl-nav button {
   display: none;
 }
 
-.owl-carousel .owl-dots button{
-  border:none;
+.owl-carousel .owl-dots button {
+  border: none;
   background: #ccc;
   width: 1.5em;
   height: 1.5em;
   border-radius: 9px;
-  margin: 0 .5em;
+  margin: 0 0.5em;
   padding: 0;
 }
