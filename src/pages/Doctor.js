@@ -3,6 +3,10 @@ import React from 'react';
 import Shell from '../components/app/Shell';
 
 function Doctor() {
+  const [position, setPosition] = React.useState(0);
+
+  const nextStep = () => setPosition(position + 1);
+
   return (
     <Shell
       navBarContent={[
@@ -26,7 +30,10 @@ function Doctor() {
         <p>Pediatria / Alergologia / Imunoterapia</p>
       </div>
 
-      <form className="steps">
+      <form
+        className="steps"
+        style={{ transform: `translateX(${-position * 100}%)` }}
+      >
         <div className="step">
           <ul>
             <li className="price">
@@ -37,7 +44,7 @@ function Doctor() {
               </div>
             </li>
           </ul>
-          <button type="button" className="nextStep">
+          <button type="button" onClick={nextStep}>
             Agendar Consulta
           </button>
         </div>
@@ -56,7 +63,7 @@ function Doctor() {
               <span className="emphasis">Alterar</span>
             </li>
           </ul>
-          <button type="button" className="nextStep">
+          <button type="button" onClick={nextStep}>
             Próximo
           </button>
         </div>
