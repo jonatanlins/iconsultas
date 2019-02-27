@@ -1,6 +1,7 @@
 import React from 'react';
 import Shell from '../components/app/Shell';
 import { Link } from 'react-router-dom';
+import Carousel from 'tiny-slider-react';
 
 import phonendoscopeIcon from '../assets/icons/phonendoscope.png';
 import pharmacyIcon from '../assets/icons/pharmacy.png';
@@ -10,6 +11,20 @@ import oticIcon from '../assets/icons/otic.png';
 import flaskIcon from '../assets/icons/flask.png';
 
 function Categorias() {
+  const carouselSettings = {
+    items: 3,
+    slideBy: 1,
+    controls: false,
+    nav: false,
+    gutter: 16,
+    edgePadding: 16,
+    preventScrollOnTouch: 'auto',
+    mouseDrag: true,
+    swipeAngle: 45,
+    autoplay: true,
+    autoplayButtonOutput: false,
+  };
+
   return (
     <Shell
       carousel
@@ -40,25 +55,27 @@ function Categorias() {
       </button>
 
       <div className="moreCategoryButtons">
-        <Link className="item" to="">
-          <img className="icon" src={discountsIcon} alt="" />
-          <span className="label">Ofertas</span>
-        </Link>
+        <Carousel settings={carouselSettings}>
+          <Link className="item" to="">
+            <img className="icon" src={discountsIcon} alt="" />
+            <span className="label">Ofertas</span>
+          </Link>
 
-        <Link className="item" to="">
-          <img className="icon" src={pillsBottleIcon} alt="" />
-          <span className="label">Farmácias</span>
-        </Link>
+          <Link className="item" to="">
+            <img className="icon" src={pillsBottleIcon} alt="" />
+            <span className="label">Farmácias</span>
+          </Link>
 
-        <Link className="item" to="">
-          <img className="icon" src={oticIcon} alt="" />
-          <span className="label">Óticas</span>
-        </Link>
+          <Link className="item" to="">
+            <img className="icon" src={oticIcon} alt="" />
+            <span className="label">Óticas</span>
+          </Link>
 
-        <Link className="item" to="">
-          <img className="icon" src={flaskIcon} alt="" />
-          <span className="label">Exames</span>
-        </Link>
+          <Link className="item" to="">
+            <img className="icon" src={flaskIcon} alt="" />
+            <span className="label">Exames</span>
+          </Link>
+        </Carousel>
       </div>
     </Shell>
   );

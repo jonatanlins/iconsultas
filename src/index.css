@@ -818,7 +818,7 @@ hr {
   box-sizing: border-box;
 }
 
-.moreCategoryButtons:not(.tns-slider) {
+/* .moreCategoryButtons:not(.tns-slider) {
   display: flex;
   flex-wrap: wrap;
   padding: 0.5em;
@@ -829,7 +829,7 @@ hr {
   flex: 1 1 30%;
   flex-direction: column;
   margin: 0.5em;
-}
+} */
 
 .tutorialCarousel {
   overflow: hidden;

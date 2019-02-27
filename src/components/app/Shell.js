@@ -1,16 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
+import Carousel from 'tiny-slider-react';
 
 import NavBar from './NavBar';
 import Page from './Page';
 
 import carouselImage1 from '../../assets/images/carrossel-01.jpg';
+import carouselImage2 from '../../assets/images/carrossel-02.jpg';
 import SearchBar from './SearchBar';
 import Modal from './Modal';
 
 function Shell({ navBarContent, searchBar = true, children, carousel, title }) {
   const [mainMenuState, setMainMenuState] = React.useState(false);
   const [citySelectionState, setCitySelectionState] = React.useState(false);
+
+  const carouselSettings = {
+    items: 1,
+    slideBy: 1,
+    controls: false,
+    nav: false,
+    preventScrollOnTouch: 'auto',
+    mouseDrag: true,
+    autoplay: true,
+    autoplayButtonOutput: false,
+  };
 
   return (
     <Page>
@@ -26,11 +39,12 @@ function Shell({ navBarContent, searchBar = true, children, carousel, title }) {
           />
 
           {carousel && (
-            <img
-              className="logo"
-              src={carouselImage1}
-              alt="Logotipo do iConsultas"
-            />
+            <div className="logo">
+              <Carousel settings={carouselSettings} className="logo">
+                <img src={carouselImage1} alt="Logotipo do iConsultas" />
+                <img src={carouselImage2} alt="Logotipo do iConsultas" />
+              </Carousel>
+            </div>
           )}
 
           {searchBar ? <SearchBar /> : <hr />}
