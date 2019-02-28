@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import Shell from '../components/app/Shell';
 
@@ -8,17 +8,10 @@ function Pesquisa() {
     { title: 'Dr. Luiz Bandim', link: '' },
     { title: 'Hospital Santa Efigenia', link: '' },
     { title: 'Drogaria Rocha', link: '' },
-  ]
+  ];
 
   return (
     <Shell
-      navBarContent={[
-        'back',
-        'space',
-        'citySelection',
-        'notifications',
-        'menu',
-      ]}
     >
       <ul class="linkList searchResults">
         {results.map(({ title, link }, index) => (

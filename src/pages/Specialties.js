@@ -5,40 +5,37 @@ import Shell from '../components/app/Shell';
 function Specialties() {
   const specialties = [
     {
-      name: 'Cardiologia', description: [
+      name: 'Cardiologia',
+      description: [
         'O médico cardiologista, é o especialista responsável pelo sistema cardiovascular e o coração.',
         'Este é o médico que deve-se procurar em casos de pressão alta, colesterol alto e outras doenças relacionadas ao coração e a circulação sanguínea.',
-      ]
+      ],
     },
     {
-      name: 'Endocrinologia', description: [
+      name: 'Endocrinologia',
+      description: [
         'Endocrinologia é uma especialidade médica que estuda as ordens do sistema endócrino e suas secreções específicas, chamadas de secreções fisiológicas.',
-      ]
+      ],
     },
     {
-      name: 'Ginecologia', description: [
+      name: 'Ginecologia',
+      description: [
         'A ginecologia é a prática da medicina que lida diretamente com a saúde do aparelho reprodutor feminino e mamas.',
         'Seu significado literal é "a ciência da mulher".',
         'É paralela a andrologia que lida especificamente com questões ligadas ao aparelho reprodutor masculino.',
-      ]
+      ],
     },
     {
-      name: 'Pediatria', description: [
+      name: 'Pediatria',
+      description: [
         'A pediatria é a especialidade médica dedicada à assistência à criança e ao adolescente, nos seus diversos aspectos, sejam eles preventivos ou curativos.',
         'Pessoas como crianças e adolescentes, se estiverem com doenças, devem dirigir-se ao seu pediatra.',
-      ]
+      ],
     },
-  ]
+  ];
 
   return (
     <Shell
-      navBarContent={[
-        'back',
-        'space',
-        'citySelection',
-        'notifications',
-        'menu',
-      ]}
     >
       <div class="accordion">
         {specialties.map(({ name, description }, index) => (
@@ -46,7 +43,9 @@ function Specialties() {
             <input type="checkbox" class="trigger" />
             <div class="header">{name}</div>
             <div class="content">
-              {description.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+              {description.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
 
               <a href="" class="callToAction">
                 Agendar consulta <i class="icon-right-open" />

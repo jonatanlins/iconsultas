@@ -35,22 +35,12 @@ function Categorias() {
   };
 
   return (
-    <Shell
-      carousel
-      searchBar
-      navBarContent={[
-        'back',
-        'space',
-        'citySelection',
-        'notifications',
-        'menu',
-      ]}
-    >
+    <Shell carousel searchBar>
       <div className="categoryButtons">
         {categories.slice(0, 2).map(CategoryButton)}
       </div>
 
-      <button className="showAllCategories" onClick={() => { }}>
+      <button className="showAllCategories" onClick={() => {}}>
         <i className="icon-plus-squared" />
         Ver todos
       </button>

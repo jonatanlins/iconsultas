@@ -14,11 +14,7 @@ function Cidades() {
   ];
 
   return (
-    <Shell
-      carousel
-      title="Bem Vindo!"
-      navBarContent={['back', 'title', 'menu']}
-    >
+    <Shell carousel title="Bem Vindo!">
       <ul className="linkList">
         {cities.map(({ code, name }) => (
           <li key={code}>

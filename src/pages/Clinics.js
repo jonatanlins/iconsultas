@@ -46,13 +46,6 @@ function Clínicas() {
 
   return (
     <Shell
-      navBarContent={[
-        'back',
-        'space',
-        'citySelection',
-        'notifications',
-        'menu',
-      ]}
     >
       <ul className="listWithPrice">
         {clinics.map(({ id, name, image, address, distance, price }) => (
@@ -66,7 +59,10 @@ function Clínicas() {
               <div className="content">
                 <h3 className="title">{name}</h3>
                 <p>{address}</p>
-                <p> <i className="icon-location" /> {distance} </p>
+                <p>
+                  {' '}
+                  <i className="icon-location" /> {distance}{' '}
+                </p>
                 <span className="price">{price}</span>
               </div>
             </Link>

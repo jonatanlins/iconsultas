@@ -10,7 +10,7 @@ import carouselImage2 from '../../assets/images/carrossel-02.jpg';
 import SearchBar from './SearchBar';
 import Modal from './Modal';
 
-function Shell({ navBarContent, searchBar = true, children, carousel, title }) {
+function Shell({ searchBar = true, children, carousel, title }) {
   const [mainMenuState, setMainMenuState] = React.useState(false);
   const [citySelectionState, setCitySelectionState] = React.useState(false);
 
@@ -30,8 +30,7 @@ function Shell({ navBarContent, searchBar = true, children, carousel, title }) {
       <StyledWrapper>
         <header className="mainHeader">
           <NavBar
-            title={title}
-            content={navBarContent}
+          title={title}
             swicthMainMenu={() => setMainMenuState(!mainMenuState)}
             swicthCitySelection={() =>
               setCitySelectionState(!citySelectionState)

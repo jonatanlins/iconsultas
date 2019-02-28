@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Shell from '../components/app/Shell';
 
-import doctorImage1 from '../assets/images/dr_luiz_bandim.png'
+import doctorImage1 from '../assets/images/dr_luiz_bandim.png';
 
 function Doctors() {
   const doctors = [
@@ -31,17 +31,10 @@ function Doctors() {
       specialties: ['Pediatria', 'Alergologia', 'Imunoterapia'],
       price: 'A partir de R$250 ou Convênio',
     },
-  ]
+  ];
 
   return (
     <Shell
-      navBarContent={[
-        'back',
-        'space',
-        'citySelection',
-        'notifications',
-        'menu',
-      ]}
     >
       <ul className="listWithPrice">
         {doctors.map(({ id, crm, image, name, specialties, price }) => (

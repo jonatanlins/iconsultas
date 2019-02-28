@@ -2,11 +2,11 @@ import React from 'react';
 
 import Shell from '../components/app/Shell';
 
-import medicImage from '../assets/images/dr_luiz_bandim.png'
-import moneyIcon from '../assets/icons/money.png'
-import calendarIcon from '../assets/icons/calendar.png'
-import clockIcon from '../assets/icons/clock.png'
-import locationIcon from '../assets/icons/location.png'
+import medicImage from '../assets/images/dr_luiz_bandim.png';
+import moneyIcon from '../assets/icons/money.png';
+import calendarIcon from '../assets/icons/calendar.png';
+import clockIcon from '../assets/icons/clock.png';
+import locationIcon from '../assets/icons/location.png';
 
 function Doctor() {
   const [position, setPosition] = React.useState(0);
@@ -15,22 +15,11 @@ function Doctor() {
 
   return (
     <Shell
-      navBarContent={[
-        'back',
-        'space',
-        'citySelection',
-        'notifications',
-        'menu',
-      ]}
     >
       <h1 className="pageTitle">Pediatria</h1>
 
       <div className="doctorInfo">
-        <img
-          src={medicImage}
-          alt=""
-          className="profilePicture"
-        />
+        <img src={medicImage} alt="" className="profilePicture" />
         <h2 className="name">Dr. Luiz Bandim</h2>
         <p>CRM PE 9295</p>
         <p>Pediatria / Alergologia / Imunoterapia</p>
