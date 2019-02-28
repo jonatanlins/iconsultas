@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import styled from 'styled-components';
 
 import Categories from './pages/Categories';
 import Cities from './pages/Cities';
@@ -11,9 +10,9 @@ import Tutorial from './pages/Tutorial';
 import Notifications from './pages/Notifications';
 import Doctor from './pages/Doctor';
 import Doctors from './pages/Doctors';
-import Especialities from './pages/Especialities';
+import Specialties from './pages/Specialties';
 
-function Router({ location }) {
+function Router() {
   return (
     <BrowserRouter>
       <Route
@@ -29,7 +28,7 @@ function Router({ location }) {
                 <Route path="/notificacoes" component={Notifications} />
                 <Route path="/medicos" component={Doctors} />
                 <Route path="/medico/:id" component={Doctor} />
-                <Route path="/especialidades/:id" component={Especialities} />
+                <Route path="/especialidades/:id" component={Specialties} />
               </Switch>
             </CSSTransition>
           </TransitionGroup>

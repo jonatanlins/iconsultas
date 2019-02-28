@@ -20,8 +20,8 @@ function Cidades() {
       navBarContent={['back', 'title', 'menu']}
     >
       <ul className="linkList">
-        {cities.map(({ code, name }, index) => (
-          <li key={index}>
+        {cities.map(({ code, name }) => (
+          <li key={code}>
             <Link to={`categorias?cidade=${code}`}>{name}</Link>
           </li>
         ))}

@@ -11,6 +11,15 @@ import oticIcon from '../assets/icons/otic.png';
 import flaskIcon from '../assets/icons/flask.png';
 
 function Categorias() {
+  const categories = [
+    { name: 'Médicos', path: '/medicos', icon: phonendoscopeIcon },
+    { name: 'Clínicas', path: '/clinicas', icon: pharmacyIcon },
+    { name: 'Ofertas', path: '', icon: discountsIcon },
+    { name: 'Farmácias', path: '', icon: pillsBottleIcon },
+    { name: 'Óticas', path: '', icon: oticIcon },
+    { name: 'Exames', path: '', icon: flaskIcon },
+  ];
+
   const carouselSettings = {
     items: 3,
     slideBy: 1,
@@ -28,6 +37,7 @@ function Categorias() {
   return (
     <Shell
       carousel
+      searchBar
       navBarContent={[
         'back',
         'space',
@@ -35,50 +45,30 @@ function Categorias() {
         'notifications',
         'menu',
       ]}
-      searchBar={true}
     >
       <div className="categoryButtons">
-        <Link className="item" to="/medicos">
-          <span className="label">Médicos</span>
-          <img className="icon" src={phonendoscopeIcon} alt="" />
-        </Link>
-
-        <Link className="item" to="/clinicas">
-          <span className="label">Clínicas</span>
-          <img className="icon" src={pharmacyIcon} alt="" />
-        </Link>
+        {categories.slice(0, 2).map(CategoryButton)}
       </div>
 
-      <button className="showAllCategories" onClick={() => {}}>
+      <button className="showAllCategories" onClick={() => { }}>
         <i className="icon-plus-squared" />
         Ver todos
       </button>
 
       <div className="moreCategoryButtons">
         <Carousel settings={carouselSettings}>
-          <Link className="item" to="">
-            <img className="icon" src={discountsIcon} alt="" />
-            <span className="label">Ofertas</span>
-          </Link>
-
-          <Link className="item" to="">
-            <img className="icon" src={pillsBottleIcon} alt="" />
-            <span className="label">Farmácias</span>
-          </Link>
-
-          <Link className="item" to="">
-            <img className="icon" src={oticIcon} alt="" />
-            <span className="label">Óticas</span>
-          </Link>
-
-          <Link className="item" to="">
-            <img className="icon" src={flaskIcon} alt="" />
-            <span className="label">Exames</span>
-          </Link>
+          {categories.slice(2).map(CategoryButton)}
         </Carousel>
       </div>
     </Shell>
   );
 }
+
+const CategoryButton = ({ name, path, icon }) => (
+  <Link className="item" to={path} key={name}>
+    <span className="label">{name}</span>
+    <img className="icon" src={icon} alt={`Ícone de ${name}`} />
+  </Link>
+);
 
 export default Categorias;

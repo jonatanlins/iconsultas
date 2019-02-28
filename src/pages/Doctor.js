@@ -2,6 +2,12 @@ import React from 'react';
 
 import Shell from '../components/app/Shell';
 
+import medicImage from '../assets/images/dr_luiz_bandim.png'
+import moneyIcon from '../assets/icons/money.png'
+import calendarIcon from '../assets/icons/calendar.png'
+import clockIcon from '../assets/icons/clock.png'
+import locationIcon from '../assets/icons/location.png'
+
 function Doctor() {
   const [position, setPosition] = React.useState(0);
 
@@ -21,7 +27,7 @@ function Doctor() {
 
       <div className="doctorInfo">
         <img
-          src="../assets/images/dr_luiz_bandim.png"
+          src={medicImage}
           alt=""
           className="profilePicture"
         />
@@ -37,7 +43,7 @@ function Doctor() {
         <div className="step">
           <ul>
             <li className="price">
-              <img src="../assets/icons/money.png" alt="" className="icon" />
+              <img src={moneyIcon} alt="" className="icon" />
               <div className="description">
                 <h4>A partir de R$300 ou Convênio</h4>
                 <p>Dinheiro / Cartão / Cheque</p>
@@ -53,12 +59,12 @@ function Doctor() {
           <h3>Escolha a data e hora</h3>
           <ul>
             <li className="moment">
-              <img src="../assets/icons/calendar.png" alt="" className="icon" />
+              <img src={calendarIcon} alt="" className="icon" />
               <span>23/02/2019</span>
               <span className="emphasis">Alterar</span>
             </li>
             <li className="moment">
-              <img src="../assets/icons/clock.png" alt="" className="icon" />
+              <img src={clockIcon} alt="" className="icon" />
               <span>10:00</span>
               <span className="emphasis">Alterar</span>
             </li>
@@ -73,7 +79,7 @@ function Doctor() {
           <ul>
             <li className="location">
               <input type="radio" name="location" id="" />
-              <img src="../assets/icons/location.png" alt="" className="icon" />
+              <img src={locationIcon} alt="" className="icon" />
               <div className="description">
                 <p>
                   Clínica José Carlos Ferreira Rua Rodrigues de Abreu, 22
@@ -85,7 +91,7 @@ function Doctor() {
             </li>
             <li className="location">
               <input type="radio" name="location" id="" />
-              <img src="../assets/icons/location.png" alt="" className="icon" />
+              <img src={locationIcon} alt="" className="icon" />
               <div className="description">
                 <p>
                   Hospital Santa Efigênia Rua Gonçalo Coelho, 40 Maurício de

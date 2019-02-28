@@ -1,8 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 import Shell from '../components/app/Shell';
 
 function Pesquisa() {
+  const results = [
+    { title: 'Dr. Luiz Bandim', link: '' },
+    { title: 'Hospital Santa Efigenia', link: '' },
+    { title: 'Drogaria Rocha', link: '' },
+  ]
+
   return (
     <Shell
       navBarContent={[
@@ -14,15 +21,11 @@ function Pesquisa() {
       ]}
     >
       <ul class="linkList searchResults">
-        <li>
-          <a href="">Dr. Luiz Bandim</a>
-        </li>
-        <li>
-          <a href="">Hospital Santa Efigenia</a>
-        </li>
-        <li>
-          <a href="">Drogaria Rocha</a>
-        </li>
+        {results.map(({ title, link }, index) => (
+          <li key={index}>
+            <Link to={link}>{title}</Link>
+          </li>
+        ))}
       </ul>
     </Shell>
   );
