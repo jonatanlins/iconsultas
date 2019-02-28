@@ -1,18 +1,17 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom'
-import {useFormState} from 'react-use-form-state'
 
 function SearchBar({history}) {
-  const [formState, { text }] = useFormState()
+  const [query, setQuery] = React.useState()
 
   const handleSubmit = event => {
     event.preventDefault()
-    history.push(`/pesquisa/${formState.values.query}`)
+    history.push(`/pesquisa/${query}`)
   }
 
   return (
     <form className="searchForm" onSubmit={handleSubmit}>
-      <input {...text('query')} type="text" className="input" placeholder="Busca" />
+      <input value={query} onChange={event => setQuery(event.target.value)} type="text" className={`input ${query ? 'active': ''}`} placeholder="Busca" />
       <button className="submit">
         <i className="icon-search" />
       </button>
