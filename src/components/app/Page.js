@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-function Page({ children }) {
-  return <StyledPage>{children}</StyledPage>;
+function Page({ children, color = 'default' }) {
+  return <StyledPage color={color}>{children}</StyledPage>;
 }
 
 const slideInRight = keyframes`
@@ -25,7 +25,16 @@ const slideOutLeft = keyframes`
   }
 `;
 
+const colors = {
+  primary: '#d40000',
+  grey: '#eee',
+  default: 'white',
+};
+
 const StyledPage = styled.div`
+  background-color: ${({ color }) => colors[color] || color || colors.default};
+  min-height: 100vh;
+
   &.page-enter {
     animation: ${slideInRight} 500ms forwards;
   }

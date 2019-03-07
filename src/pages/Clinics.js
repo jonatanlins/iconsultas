@@ -45,8 +45,7 @@ function Clínicas() {
   ];
 
   return (
-    <Shell
-    >
+    <Shell>
       <ul className="listWithPrice">
         {clinics.map(({ id, name, image, address, distance, price }) => (
           <li key={id}>

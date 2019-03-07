@@ -53,7 +53,7 @@ function Notifications() {
   ];
 
   return (
-    <Shell title="Notificações" >
+    <Shell title="Notificações">
       <ul className="notificationList">
         {notifications.map(({ id, icon, text }) => (
           <li key={id}>

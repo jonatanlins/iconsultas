@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 import Shell from '../components/app/Shell';
 
@@ -35,8 +36,7 @@ function Specialties() {
   ];
 
   return (
-    <Shell
-    >
+    <Shell>
       <div class="accordion">
         {specialties.map(({ name, description }, index) => (
           <div class="item" key={index}>
@@ -47,9 +47,9 @@ function Specialties() {
                 <p key={index}>{paragraph}</p>
               ))}
 
-              <a href="" class="callToAction">
+              <Link to="/medicos" class="callToAction">
                 Agendar consulta <i class="icon-right-open" />
-              </a>
+              </Link>
             </div>
           </div>
         ))}

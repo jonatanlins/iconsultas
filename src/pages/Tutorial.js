@@ -24,11 +24,11 @@ function Tutorial() {
     <Page>
       <StyledWrapper>
         <Carousel settings={settings}>
-          <img src={carousel1} />
-          <img src={carousel2} />
+          <img src={carousel1} alt="Agendar sua consulta nunca foi tão fácil" />
+          <img src={carousel2} alt="Agendar sua consulta nunca foi tão fácil" />
         </Carousel>
 
-        <Link to="/cidades" className="skipTutorialButton">
+        <Link to="/login" className="skipTutorialButton">
           Continuar
         </Link>
       </StyledWrapper>

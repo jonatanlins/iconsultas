@@ -34,8 +34,7 @@ function Doctors() {
   ];
 
   return (
-    <Shell
-    >
+    <Shell>
       <ul className="listWithPrice">
         {doctors.map(({ id, crm, image, name, specialties, price }) => (
           <li key={id}>
