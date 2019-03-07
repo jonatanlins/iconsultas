@@ -14,8 +14,7 @@ function Doctor() {
   const nextStep = () => setPosition(position + 1);
 
   return (
-    <Shell
-    >
+    <Shell>
       <h1 className="pageTitle">Pediatria</h1>
 
       <div className="doctorInfo">

@@ -35,7 +35,7 @@ function Categorias() {
   };
 
   return (
-    <Shell carousel searchBar>
+    <Shell carousel searchBar color="grey">
       <div className="categoryButtons">
         {categories.slice(0, 2).map(CategoryButton)}
       </div>

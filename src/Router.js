@@ -11,6 +11,7 @@ import Notifications from './pages/Notifications';
 import Doctor from './pages/Doctor';
 import Doctors from './pages/Doctors';
 import Specialties from './pages/Specialties';
+import Login from './pages/Login';
 
 function Router() {
   return (
@@ -21,6 +22,7 @@ function Router() {
             <CSSTransition key={location.key} timeout={500} classNames="page">
               <Switch location={location}>
                 <Route path="/" exact component={Tutorial} />
+                <Route path="/login" component={Login} />
                 <Route path="/cidades" component={Cities} />
                 <Route path="/categorias" component={Categories} />
                 <Route path="/clinicas" component={Clinics} />

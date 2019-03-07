@@ -11,8 +11,7 @@ function Pesquisa() {
   ];
 
   return (
-    <Shell
-    >
+    <Shell>
       <ul class="linkList searchResults">
         {results.map(({ title, link }, index) => (
           <li key={index}>

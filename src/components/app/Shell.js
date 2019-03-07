@@ -9,8 +9,9 @@ import carouselImage1 from '../../assets/images/carrossel-01.jpg';
 import carouselImage2 from '../../assets/images/carrossel-02.jpg';
 import SearchBar from './SearchBar';
 import Modal from './Modal';
+import SideMenu from './SideMenu';
 
-function Shell({ searchBar = true, children, carousel, title }) {
+function Shell({ searchBar = true, children, carousel, title, color }) {
   const [mainMenuState, setMainMenuState] = React.useState(false);
   const [citySelectionState, setCitySelectionState] = React.useState(false);
 
@@ -26,11 +27,11 @@ function Shell({ searchBar = true, children, carousel, title }) {
   };
 
   return (
-    <Page>
+    <Page color={color}>
       <StyledWrapper>
         <header className="mainHeader">
           <NavBar
-          title={title}
+            title={title}
             swicthMainMenu={() => setMainMenuState(!mainMenuState)}
             swicthCitySelection={() =>
               setCitySelectionState(!citySelectionState)
@@ -51,7 +52,7 @@ function Shell({ searchBar = true, children, carousel, title }) {
 
         {children}
 
-        <Modal
+        <SideMenu
           active={mainMenuState}
           close={() => setMainMenuState(false)}
           content={[
