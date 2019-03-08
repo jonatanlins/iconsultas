@@ -37,11 +37,13 @@ const StyledPage = styled.div`
 
   &.page-enter {
     animation: ${slideInRight} 500ms forwards;
+    overflow: hidden;
   }
   &.page-exit {
     animation: ${slideOutLeft} 500ms forwards;
     position: absolute;
     top: 0;
+    width: 100vw;
     overflow: hidden;
   }
 `;
