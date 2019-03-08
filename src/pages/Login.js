@@ -23,21 +23,54 @@ function Login({ history }) {
         <img src={iConsultasLogo} alt="Logotipo do iConsultas" />
 
         <StyledSignIn>
-          <Input label="Email" type="email" icon="envelope" {...email('email')} />
-          <Input label="Senha" type="password" icon="lock" {...password('password')} />
-          <Button type="text" className="secondActionButton">Esqueci a senha</Button>
-          <Button onClick={handleLogin} className="actionButton">Entrar</Button>
+          <Input
+            label="Email"
+            type="email"
+            icon="envelope"
+            {...email('email')}
+          />
+          <Input
+            label="Senha"
+            type="password"
+            icon="lock"
+            {...password('password')}
+          />
+          <Button type="text" className="secondActionButton">
+            Esqueci a senha
+          </Button>
+          <Button onClick={handleLogin} className="actionButton">
+            Entrar
+          </Button>
         </StyledSignIn>
 
         <StyledDetail />
 
         <StyledSignUp>
-          <span className="title">Primeira vez aqui? <br/> cadastre-se</span>
+          <span className="title">
+            Primeira vez aqui? <br /> cadastre-se
+          </span>
           <Input label="Nome" type="email" icon="user" {...text('name')} />
-          <Input label="Email" type="email" icon="envelope" {...email('email')} />
-          <Input label="Senha" type="password" icon="lock" {...password('password')} />
-          <Input label="Digite a senha novamente" type="password" icon="lock" {...password('confirmPassword')} />
-          <Button onClick={handleLogin} className="actionButton">Cadastre-se</Button>
+          <Input
+            label="Email"
+            type="email"
+            icon="envelope"
+            {...email('email')}
+          />
+          <Input
+            label="Senha"
+            type="password"
+            icon="lock"
+            {...password('password')}
+          />
+          <Input
+            label="Digite a senha novamente"
+            type="password"
+            icon="lock"
+            {...password('confirmPassword')}
+          />
+          <Button onClick={handleLogin} className="actionButton">
+            Cadastre-se
+          </Button>
         </StyledSignUp>
       </StyledWrapper>
     </Page>
@@ -51,9 +84,9 @@ const StyledWrapper = styled.div`
     display: block;
     margin: 3em 0;
   }
-  
+
   .secondActionButton {
-    font-size: .8em;
+    font-size: 0.8em;
     color: #555;
     display: block;
 
@@ -68,7 +101,7 @@ const StyledSignIn = styled.div`
   padding: 1em 1em 0;
   border-radius: 1em 1em 0 0;
   position: relative;
-  
+
   .actionButton {
     position: absolute;
     right: 1em;
@@ -83,13 +116,13 @@ const StyledSignUp = styled.div`
   padding: 1em 1em 6em;
   border-radius: 0 0 1em 1em;
   position: relative;
-  
+
   .title {
     font-size: 1.5em;
     position: absolute;
     top: -2em;
   }
-  
+
   .actionButton {
     position: absolute;
     right: 1em;

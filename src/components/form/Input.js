@@ -6,11 +6,7 @@ function Input({ value, onChange, type, label, icon }) {
   return (
     <StyledWrapper icon={icon} className={value ? 'active' : ''}>
       <span className="label">{label}</span>
-      <input
-        value={value}
-        onChange={onChange}
-        type={type}
-      />
+      <input value={value} onChange={onChange} type={type} />
       {icon && <FontAwesomeIcon icon={icon} />}
     </StyledWrapper>
   );
@@ -25,9 +21,9 @@ const StyledWrapper = styled.div`
     border: none;
     border-bottom: 1px solid #777;
     color: black;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
     margin-bottom: 1px;
-    padding: 1em ${props => props.icon ? 3 : 1}em 1em 1em;
+    padding: 1em ${props => (props.icon ? 3 : 1)}em 1em 1em;
     width: 100%;
     box-sizing: border-box;
   }
@@ -46,7 +42,7 @@ const StyledWrapper = styled.div`
     top: 1.8em;
     left: 1em;
     color: #555;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
     pointer-events: none;
   }
 
@@ -56,9 +52,9 @@ const StyledWrapper = styled.div`
     }
 
     .label {
-      font-size: .8em;
-      left: .5em;
-      top: .5em;  
+      font-size: 0.8em;
+      left: 0.5em;
+      top: 0.5em;
     }
   }
 
@@ -73,6 +69,5 @@ const StyledWrapper = styled.div`
     }
   }
 `;
-
 
 export default Input;
