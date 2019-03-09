@@ -1,4 +1,5 @@
 import React from 'react';
+import dayjs from 'dayjs'
 
 import Shell from '../components/app/Shell';
 
@@ -7,9 +8,15 @@ import moneyIcon from '../assets/icons/money.png';
 import calendarIcon from '../assets/icons/calendar.png';
 import clockIcon from '../assets/icons/clock.png';
 import locationIcon from '../assets/icons/location.png';
+import DateSelect from '../components/misc/DateSelect';
+import TimeSelect from '../components/misc/TimeSelect';
 
 function Doctor() {
   const [position, setPosition] = React.useState(0);
+  const [date, setDate] = React.useState(new Date())
+  const [time, setTime] = React.useState(new Date())
+  const [dateSelectVisibility, setDateSelectVisibility] = React.useState(false)
+  const [timeSelectVisibility, setTimeSelectVisibility] = React.useState(false)
 
   const nextStep = () => setPosition(position + 1);
 
@@ -23,6 +30,10 @@ function Doctor() {
         <p>CRM PE 9295</p>
         <p>Pediatria / Alergologia / Imunoterapia</p>
       </div>
+
+      <DateSelect value={date} onChange={setDate} active={dateSelectVisibility} close={() => setDateSelectVisibility(false)}/>
+
+      <TimeSelect value={time} onChange={setTime} active={timeSelectVisibility} close={() => setTimeSelectVisibility(false)}/>
 
       <form
         className="steps"
@@ -48,13 +59,13 @@ function Doctor() {
           <ul>
             <li className="moment">
               <img src={calendarIcon} alt="" className="icon" />
-              <span>23/02/2019</span>
-              <span className="emphasis">Alterar</span>
+              <span>{dayjs(date).format('DD/MM/YYYY')}</span>
+              <span className="emphasis" onClick={() => setDateSelectVisibility(true)}>Alterar</span>
             </li>
             <li className="moment">
               <img src={clockIcon} alt="" className="icon" />
-              <span>10:00</span>
-              <span className="emphasis">Alterar</span>
+              <span>{dayjs(time).format('HH:mm')}</span>
+              <span className="emphasis" onClick={() => setTimeSelectVisibility(true)}>Alterar</span>
             </li>
           </ul>
           <button type="button" onClick={nextStep}>

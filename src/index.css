@@ -414,9 +414,11 @@ h1.pageTitle {
 .steps .step ul li span.emphasis {
   background-color: #4cb906;
   flex: 0 0 auto;
-  padding: 0 1em;
+  padding: 0 .7em;
   border-radius: 99px;
   color: white;
+  cursor: pointer;
+  margin-left: .5em;
 }
 
 .steps .step button {
