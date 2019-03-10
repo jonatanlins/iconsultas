@@ -12,7 +12,7 @@ import flaskIcon from '../assets/icons/flask.png';
 
 function Categorias() {
   const categories = [
-    { name: 'Médicos', path: '/medicos', icon: phonendoscopeIcon },
+    { name: 'Médicos', path: '/especialidades/2693', icon: phonendoscopeIcon },
     { name: 'Clínicas', path: '/clinicas', icon: pharmacyIcon },
     { name: 'Ofertas', path: '', icon: discountsIcon },
     { name: 'Farmácias', path: '', icon: pillsBottleIcon },
