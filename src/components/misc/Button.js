@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function Button({ type = 'raised', children, onClick, className }) {
+function Button({ type = 'raised', children, onClick, className, color }) {
   return (
-    <StyledButton className={`${type} ${className}`} onClick={onClick}>
+    <StyledButton className={`${type} ${className}`} onClick={onClick} color={color}>
       {children}
     </StyledButton>
   );
@@ -14,11 +14,11 @@ const StyledButton = styled.button`
     color: white;
     font-size: 1em;
     text-transform: uppercase;
-    border-radius: 9em;
+    border-radius: .5em;
     border: none;
     padding: 1em;
     cursor: pointer;
-    background: linear-gradient(to right, #ff3c3c, #d40000);
+    background: ${props => props.color || '#d40000'};
   }
 
   &.text {
@@ -27,6 +27,10 @@ const StyledButton = styled.button`
     font-size: 1em;
     text-transform: uppercase;
     cursor: pointer;
+  }
+
+  svg {
+    width: 1.5em !important;
   }
 `;
 

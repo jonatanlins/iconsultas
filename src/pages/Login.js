@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import { useFormState } from 'react-use-form-state';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import {faFacebookF} from '@fortawesome/free-brands-svg-icons'
 
 import Page from '../components/app/Page';
 import Input from '../components/form/Input';
@@ -11,67 +14,90 @@ import iConsultasLogo from '../assets/images/logo-titulo.png';
 
 function Login({ history }) {
   const [formState, { text, email, password }] = useFormState();
+  const [mode, setMode] = React.useState('signIn')
 
   const handleLogin = () => {
     console.log(formState);
     history.push('/cidades');
   };
 
+  const signInForm = (
+    <StyledForm>
+      <Input
+        label="Email"
+        type="email"
+        icon="envelope"
+        {...email('email')}
+      />
+      <Input
+        label="Senha"
+        type="password"
+        icon="lock"
+        {...password('password')}
+      />
+      <Button onClick={handleLogin} className="actionButton">
+        Entrar
+      </Button>
+      <Button onClick={handleLogin} className="actionButton" color="#3c4c84">
+        <FontAwesomeIcon icon={faFacebookF}/>
+        Login com Facebook
+      </Button>
+      <Button type="text" className="secondActionButton">
+        Esqueci minha senha
+      </Button>
+    </StyledForm>
+  )
+
+  const signUpForm = (
+    <StyledForm>
+      <Button onClick={handleLogin} className="actionButton" color="#3c4c84">
+        <FontAwesomeIcon icon={faFacebookF}/>
+        Login com Facebook
+      </Button>
+
+      <Input label="Nome" type="email" icon="user" {...text('name')} />
+      <Input
+        label="Email"
+        type="email"
+        icon="envelope"
+        {...email('email')}
+      />
+      <Input
+        label="Senha"
+        type="password"
+        icon="lock"
+        {...password('password')}
+      />
+      <Input
+        label="Digite a senha novamente"
+        type="password"
+        icon="lock"
+        {...password('confirmPassword')}
+      />
+      <Button onClick={handleLogin} className="actionButton">
+        Cadastre-se
+      </Button>
+    </StyledForm>
+  )
+
+  const modes = {
+    signIn: signInForm,
+    signUp: signUpForm,
+  }
+
   return (
     <Page color="primary">
       <StyledWrapper>
         <img src={iConsultasLogo} alt="Logotipo do iConsultas" />
 
-        <StyledSignIn>
-          <Input
-            label="Email"
-            type="email"
-            icon="envelope"
-            {...email('email')}
-          />
-          <Input
-            label="Senha"
-            type="password"
-            icon="lock"
-            {...password('password')}
-          />
-          <Button type="text" className="secondActionButton">
-            Esqueci a senha
-          </Button>
-          <Button onClick={handleLogin} className="actionButton">
-            Entrar
-          </Button>
-        </StyledSignIn>
+        <div className="forms">
+          <div className="buttons">
+            <button className={mode === 'signUp' ? 'active' : ''} onClick={() => setMode('signUp')}>Quero me cadastrar</button>
+            <button className={mode === 'signIn' ? 'active' : ''} onClick={() => setMode('signIn')}>Já sou cadastrado</button>
+          </div>
 
-        <StyledDetail />
-
-        <StyledSignUp>
-          <span className="title">
-            Primeira vez aqui? <br /> cadastre-se
-          </span>
-          <Input label="Nome" type="email" icon="user" {...text('name')} />
-          <Input
-            label="Email"
-            type="email"
-            icon="envelope"
-            {...email('email')}
-          />
-          <Input
-            label="Senha"
-            type="password"
-            icon="lock"
-            {...password('password')}
-          />
-          <Input
-            label="Digite a senha novamente"
-            type="password"
-            icon="lock"
-            {...password('confirmPassword')}
-          />
-          <Button onClick={handleLogin} className="actionButton">
-            Cadastre-se
-          </Button>
-        </StyledSignUp>
+          {modes[mode]}
+        </div>
       </StyledWrapper>
     </Page>
   );
@@ -85,37 +111,34 @@ const StyledWrapper = styled.div`
     margin: 3em 0;
   }
 
-  .secondActionButton {
-    font-size: 0.8em;
-    color: #555;
-    display: block;
+  .forms {
+    border-radius: .5em;
+    overflow: hidden;
+    background: white;
 
-    &:hover {
-      color: #222;
+    .buttons {
+      display: flex;
+
+      button {
+        border: none;
+        flex: 1;
+        background: #ddd;
+        color: #555;
+        padding: 1em 0;
+        font-weight: bold;
+        cursor: pointer;
+
+        &.active {
+          background: white;
+          color: #333;
+        }
+      }
     }
   }
 `;
 
-const StyledSignIn = styled.div`
-  background: white;
-  padding: 1em 1em 0;
-  border-radius: 1em 1em 0 0;
-  position: relative;
-
-  .actionButton {
-    position: absolute;
-    right: 1em;
-    bottom: -4em;
-    z-index: 1;
-    width: 50%;
-  }
-`;
-
-const StyledSignUp = styled.div`
-  background: white;
-  padding: 1em 1em 6em;
-  border-radius: 0 0 1em 1em;
-  position: relative;
+const StyledForm = styled.form`
+  padding: 1em;
 
   .title {
     font-size: 1.5em;
@@ -124,39 +147,19 @@ const StyledSignUp = styled.div`
   }
 
   .actionButton {
-    position: absolute;
-    right: 1em;
-    bottom: 2em;
-    z-index: 1;
-    width: 70%;
-  }
-`;
-
-const StyledDetail = styled.div`
-  height: 57vw;
-  position: relative;
-  overflow: hidden;
-
-  &:before,
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
     width: 100%;
-    height: 46vw;
-    left: 0;
-    background: white;
-    transform: skewY(25deg);
+    margin: 1em 0;
   }
+  
+  .secondActionButton {
+    font-size: 0.8em;
+    color: #555;
+    width: 100%;
+    text-align: center;
 
-  &:before {
-    top: -21vw;
-    border-radius: 0 0 3em 1em;
-  }
-
-  &:after {
-    bottom: -21vw;
-    border-radius: 3em 1em 0 0;
+    &:hover {
+      color: #222;
+    }
   }
 `;
 
