@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Shell from '../components/app/Shell';
 
@@ -24,6 +25,14 @@ function Doctor() {
         <p>CRM PE 9295</p>
         <p>Pediatria / Alergologia / Imunoterapia</p>
       </div>
+
+      <StyledStepMarker>
+        {['dollar-sign', 'map-marker-alt', 'calendar-alt'].map((icon, index) => (
+          <div key={index} className={`step ${position === index ? 'active' : ''}`} onClick={() => setPosition(index)}>
+            <FontAwesomeIcon icon={icon}/>
+          </div>
+        ))}
+      </StyledStepMarker>
 
       <form
         className="steps"
@@ -152,6 +161,41 @@ const StyledMomentSelect = styled.div`
   .timeSelect {
     flex-wrap: wrap;
     justify-content: center;
+  }
+`
+
+const StyledStepMarker = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 1em 0;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    background: #4cb906;
+    height: .2em;
+    top: 2.4em;
+    left: 10%;
+    width: 80%;
+  }
+
+  .step {
+    border-radius: 99px;
+    width: 2em;
+    color: #4cb906;
+    line-height: 2em;
+    z-index: 1;
+    background: white;
+    border: .2em solid #4cb906;
+    padding: .3em;
+    text-align: center;
+    transition: all .2s ease;
+
+    &.active {
+      background: #4cb906;
+      color: white;
+    }
   }
 `
 
