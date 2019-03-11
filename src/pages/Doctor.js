@@ -1,22 +1,16 @@
 import React from 'react';
-import dayjs from 'dayjs'
+import styled from 'styled-components'
 
 import Shell from '../components/app/Shell';
 
 import medicImage from '../assets/images/dr_luiz_bandim.png';
 import moneyIcon from '../assets/icons/money.png';
-import calendarIcon from '../assets/icons/calendar.png';
-import clockIcon from '../assets/icons/clock.png';
 import locationIcon from '../assets/icons/location.png';
-import DateSelect from '../components/misc/DateSelect';
-import TimeSelect from '../components/misc/TimeSelect';
 
 function Doctor() {
   const [position, setPosition] = React.useState(0);
-  const [date, setDate] = React.useState(new Date())
-  const [time, setTime] = React.useState(new Date())
-  const [dateSelectVisibility, setDateSelectVisibility] = React.useState(false)
-  const [timeSelectVisibility, setTimeSelectVisibility] = React.useState(false)
+  const [selectedDate, selectDate] = React.useState(null)
+  const [selectedTime, selectTime] = React.useState(null)
 
   const nextStep = () => setPosition(position + 1);
 
@@ -31,16 +25,12 @@ function Doctor() {
         <p>Pediatria / Alergologia / Imunoterapia</p>
       </div>
 
-      <DateSelect value={date} onChange={setDate} active={dateSelectVisibility} close={() => setDateSelectVisibility(false)}/>
-
-      <TimeSelect value={time} onChange={setTime} active={timeSelectVisibility} close={() => setTimeSelectVisibility(false)}/>
-
       <form
         className="steps"
         style={{ transform: `translateX(${-position * 100}%)` }}
       >
         <div className="step">
-          <ul>
+          <ul className="list">
             <li className="price">
               <img src={moneyIcon} alt="" className="icon" />
               <div className="description">
@@ -55,27 +45,8 @@ function Doctor() {
         </div>
 
         <div className="step">
-          <h3>Escolha a data e hora</h3>
-          <ul>
-            <li className="moment">
-              <img src={calendarIcon} alt="" className="icon" />
-              <span>{dayjs(date).format('DD/MM/YYYY')}</span>
-              <span className="emphasis" onClick={() => setDateSelectVisibility(true)}>Alterar</span>
-            </li>
-            <li className="moment">
-              <img src={clockIcon} alt="" className="icon" />
-              <span>{dayjs(time).format('HH:mm')}</span>
-              <span className="emphasis" onClick={() => setTimeSelectVisibility(true)}>Alterar</span>
-            </li>
-          </ul>
-          <button type="button" onClick={nextStep}>
-            Próximo
-          </button>
-        </div>
-
-        <div className="step">
           <h3>Escolha local de atendimento</h3>
-          <ul>
+          <ul className="list">
             <li className="location">
               <input type="radio" name="location" id="" />
               <img src={locationIcon} alt="" className="icon" />
@@ -101,11 +72,97 @@ function Doctor() {
               <div className="check" />
             </li>
           </ul>
+          <button type="button" onClick={nextStep}>
+            Próximo
+          </button>
+        </div>
+
+        <div className="step">
+          <h3>Escolha a data e hora</h3>
+          
+          <StyledMomentSelect>
+            <ul className="dateSelect">
+              {dates.map((date, index) => {
+                const className = (selectedDate === date ? 'selected' : '') + (!date.hours.length ? 'disabled' : '')
+                const onClick = () => date.hours.length && selectDate(date)
+
+                return (
+                  <li key={index} className={className} onClick={onClick}>
+                    <em>{date.name.substring(0,3)}</em><br/>{date.day}
+                  </li>
+                )
+              })}
+            </ul>
+
+            <ul className="timeSelect">
+              {selectedDate && selectedDate.hours.map((time, index) =>
+                <li key={index} className={selectedTime === time ? 'selected' : ''} onClick={() => selectTime(time)}>
+                  {time}
+                </li>
+              )}
+            </ul>
+          </StyledMomentSelect>
+
           <button>Próximo</button>
         </div>
       </form>
     </Shell>
   );
 }
+
+const StyledMomentSelect = styled.div`
+  ul {
+    display: flex;
+    padding: 1em;
+    margin: 0;
+    list-style: none;
+    user-select: none;
+    box-sizing: border-box;
+  
+    li {
+      padding: .8em;
+      margin: 0.1em;
+      background-color: #eee;
+      color: #d40000;
+      cursor: pointer;
+      text-align: center;
+      transition: all .2s ease;
+  
+      em {
+        font-style: normal;
+        font-weight: bold;
+      }
+
+      &.selected {
+        background-color: #d40000;
+        color: white;
+      }
+
+      &.disabled {
+        color: #888;
+      }
+    }
+  }
+  
+  .dateSelect {
+    overflow-x: auto;
+    width: 100vw;
+  }
+
+  .timeSelect {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+`
+
+const dates = [
+  { name: 'Segunda', day: '10/03', hours: ['08:15', '08:30', '09:45', '10:30', '12:15', '12:30',  '15:15', '15:30', '16:30'] },
+  { name: 'Terça', day: '11/03', hours: ['08:15', '08:30', '08:45', '09:00', '10:30', '12:15', '12:30', '14:00', '15:15', '15:30', '16:30'] },
+  { name: 'Quarta', day: '12/03', hours: ['08:45', '09:00', '09:45', '10:30', '12:15', '12:30', '15:15', '15:30', '16:30'] },
+  { name: 'Quinta', day: '13/03', hours: ['08:15', '08:30', '09:00', '09:45', '10:30', '12:30', '14:00', '15:15', '15:30', '16:30'] },
+  { name: 'Sexta', day: '14/03', hours: ['08:15', '08:30', '08:45', '09:00', '12:30', '14:00', '15:15', '15:30', '16:30'] },
+  { name: 'Sábado', day: '15/03', hours: ['08:15', '08:30', '08:45', '09:00', '09:45', '10:30', '11:20'] },
+  { name: 'Domingo', day: '16/03', hours: [] },
+]
 
 export default Doctor;
