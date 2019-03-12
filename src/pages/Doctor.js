@@ -28,7 +28,7 @@ function Doctor() {
 
       <StyledStepMarker>
         {['dollar-sign', 'map-marker-alt', 'calendar-alt'].map((icon, index) => (
-          <div key={index} className={`step ${position === index ? 'active' : ''}`} onClick={() => setPosition(index)}>
+          <div key={index} className={`step ${position === index ? 'active' : ''}`}>
             <FontAwesomeIcon icon={icon}/>
           </div>
         ))}
