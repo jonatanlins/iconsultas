@@ -28,7 +28,7 @@ function Doctor() {
 
       <StyledStepMarker>
         {['dollar-sign', 'map-marker-alt', 'calendar-alt'].map((icon, index) => (
-          <div key={index} className={`step ${position === index ? 'active' : ''}`} onClick={() => setPosition(index)}>
+          <div key={index} className={`step ${position === index ? 'active' : ''}`}>
             <FontAwesomeIcon icon={icon}/>
           </div>
         ))}
@@ -132,7 +132,7 @@ const StyledMomentSelect = styled.div`
       padding: .8em;
       margin: 0.1em;
       background-color: #eee;
-      color: #d40000;
+      color: #555;
       cursor: pointer;
       text-align: center;
       transition: all .2s ease;
@@ -143,7 +143,7 @@ const StyledMomentSelect = styled.div`
       }
 
       &.selected {
-        background-color: #d40000;
+        background-color: #4cb906;
         color: white;
       }
 
