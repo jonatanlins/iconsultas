@@ -8,6 +8,8 @@ import carousel1 from '../assets/images/tutorial-01.png';
 import carousel2 from '../assets/images/tutorial-02.png';
 
 function Tutorial() {
+  const [carousel, setCarousel] = React.useState(null)
+
   const settings = {
     items: 1,
     slideBy: 'page',
@@ -20,15 +22,22 @@ function Tutorial() {
     mouseDrag: true,
   };
 
+  const handleContinue = event => {
+    if (carousel.slider.getInfo().index < 1) {
+      event.preventDefault()
+      carousel.slider.goTo('next')
+    }
+  }
+
   return (
     <Page>
       <StyledWrapper>
-        <Carousel settings={settings}>
+        <Carousel settings={settings} ref={setCarousel}>
           <img src={carousel1} alt="Agendar sua consulta nunca foi tão fácil" />
           <img src={carousel2} alt="Agendar sua consulta nunca foi tão fácil" />
         </Carousel>
 
-        <Link to="/login" className="skipTutorialButton">
+        <Link to="/login" className="skipTutorialButton" onClick={handleContinue}>
           Continuar
         </Link>
       </StyledWrapper>
