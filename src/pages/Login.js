@@ -108,7 +108,8 @@ const StyledWrapper = styled.div`
 
   & > img {
     display: block;
-    margin: 3em 0;
+    padding: 0 3em 1em;
+    box-sizing: border-box;
   }
 
   .forms {
