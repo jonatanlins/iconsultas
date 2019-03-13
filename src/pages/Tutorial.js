@@ -32,7 +32,7 @@ function Tutorial() {
   return (
     <Page>
       <StyledWrapper>
-        <Carousel settings={settings} ref={setCarousel}>
+        <Carousel settings={settings} ref={setCarousel} onClick={handleContinue}>
           <img src={carousel1} alt="Agendar sua consulta nunca foi tão fácil" />
           <img src={carousel2} alt="Agendar sua consulta nunca foi tão fácil" />
         </Carousel>
