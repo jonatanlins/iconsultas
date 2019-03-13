@@ -1,13 +1,13 @@
 import React from 'react';
 import Carousel from 'tiny-slider-react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import Page from '../components/app/Page';
 import carousel1 from '../assets/images/tutorial-01.png';
 import carousel2 from '../assets/images/tutorial-02.png';
 
-function Tutorial() {
+function Tutorial({ history }) {
   const [carousel, setCarousel] = React.useState(null)
 
   const settings = {
@@ -24,15 +24,18 @@ function Tutorial() {
 
   const handleContinue = event => {
     if (carousel.slider.getInfo().index < 1) {
+      console.log(event)
       event.preventDefault()
       carousel.slider.goTo('next')
+    } else {
+      history.push('/login')
     }
   }
 
   return (
     <Page>
-      <StyledWrapper>
-        <Carousel settings={settings} ref={setCarousel} onClick={handleContinue}>
+      <StyledWrapper onClick={handleContinue}>
+        <Carousel settings={settings} ref={setCarousel}>
           <img src={carousel1} alt="Agendar sua consulta nunca foi tão fácil" />
           <img src={carousel2} alt="Agendar sua consulta nunca foi tão fácil" />
         </Carousel>
@@ -56,4 +59,4 @@ const StyledWrapper = styled.div`
   }
 `;
 
-export default Tutorial;
+export default withRouter(Tutorial);
