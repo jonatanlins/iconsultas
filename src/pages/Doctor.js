@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import {withRouter} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Shell from '../components/app/Shell';
@@ -8,12 +9,14 @@ import medicImage from '../assets/images/dr_luiz_bandim.png';
 import moneyIcon from '../assets/icons/money.png';
 import locationIcon from '../assets/icons/location.png';
 
-function Doctor() {
+function Doctor({ history }) {
   const [position, setPosition] = React.useState(0);
   const [selectedDate, selectDate] = React.useState(null)
   const [selectedTime, selectTime] = React.useState(null)
 
   const nextStep = () => setPosition(position + 1);
+
+  const checkout = () => history.push('/checkout')
 
   return (
     <Shell>
@@ -112,7 +115,7 @@ function Doctor() {
             </ul>
           </StyledMomentSelect>
 
-          <button>Próximo</button>
+          <button type="button" onClick={checkout}>Agendar Consulta</button>
         </div>
       </form>
     </Shell>
@@ -209,4 +212,4 @@ const dates = [
   { name: 'Domingo', day: '16/03', hours: [] },
 ]
 
-export default Doctor;
+export default withRouter(Doctor);
