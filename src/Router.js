@@ -12,6 +12,7 @@ import Doctor from './pages/Doctor';
 import Doctors from './pages/Doctors';
 import Specialties from './pages/Specialties';
 import Login from './pages/Login';
+import Checkout from './pages/Checkout';
 
 function Router() {
   return (
@@ -31,6 +32,7 @@ function Router() {
                 <Route path="/medicos" component={Doctors} />
                 <Route path="/medico/:id" component={Doctor} />
                 <Route path="/especialidades/:id" component={Specialties} />
+                <Route path="/checkout" component={Checkout} />
               </Switch>
             </CSSTransition>
           </TransitionGroup>
