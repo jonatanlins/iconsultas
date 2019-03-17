@@ -433,6 +433,11 @@ h1.pageTitle {
   cursor: pointer;
 }
 
+.steps .step button:disabled {
+  background: #aaa;
+  cursor: default;
+}
+
 .skipTutorialButton {
   position: fixed;
   top: 0;

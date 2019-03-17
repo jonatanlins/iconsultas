@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import {withRouter} from 'react-router-dom'
+import { useFormState } from 'react-use-form-state';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Shell from '../components/app/Shell';
@@ -11,8 +12,16 @@ import locationIcon from '../assets/icons/location.png';
 
 function Doctor({ history }) {
   const [position, setPosition] = React.useState(0);
-  const [selectedDate, selectDate] = React.useState(null)
-  const [selectedTime, selectTime] = React.useState(null)
+  const [selectedDate, setDate] = React.useState(null)
+  const [selectedTime, setTime] = React.useState(null)
+  const [formState, { radio }] = useFormState()
+
+  const selectDate = date => {
+    if (date.hours.length) {
+      setDate(date)
+      setTime(null)
+    }
+  }
 
   const nextStep = () => setPosition(position + 1);
 
@@ -60,7 +69,7 @@ function Doctor({ history }) {
           <h3>Escolha local de atendimento</h3>
           <ul className="list">
             <li className="location">
-              <input type="radio" name="location" id="" />
+              <input type="radio" name="location-1" id="" {...radio('location', 'l1')}/>
               <img src={locationIcon} alt="" className="icon" />
               <div className="description">
                 <p>
@@ -72,7 +81,7 @@ function Doctor({ history }) {
               <div className="check" />
             </li>
             <li className="location">
-              <input type="radio" name="location" id="" />
+              <input type="radio" name="location" id="" {...radio('location', 'l2')}/>
               <img src={locationIcon} alt="" className="icon" />
               <div className="description">
                 <p>
@@ -84,7 +93,7 @@ function Doctor({ history }) {
               <div className="check" />
             </li>
           </ul>
-          <button type="button" onClick={nextStep}>
+          <button type="button" disabled={!formState.values.location} onClick={nextStep}>
             Próximo
           </button>
         </div>
@@ -96,7 +105,7 @@ function Doctor({ history }) {
             <ul className="dateSelect">
               {dates.map((date, index) => {
                 const className = (selectedDate === date ? 'selected' : '') + (!date.hours.length ? 'disabled' : '')
-                const onClick = () => date.hours.length && selectDate(date)
+                const onClick = () => selectDate(date)
 
                 return (
                   <li key={index} className={className} onClick={onClick}>
@@ -108,14 +117,14 @@ function Doctor({ history }) {
 
             <ul className="timeSelect">
               {selectedDate && selectedDate.hours.map((time, index) =>
-                <li key={index} className={selectedTime === time ? 'selected' : ''} onClick={() => selectTime(time)}>
+                <li key={index} className={selectedTime === time ? 'selected' : ''} onClick={() => setTime(time)}>
                   {time}
                 </li>
               )}
             </ul>
           </StyledMomentSelect>
 
-          <button type="button" onClick={checkout}>Agendar Consulta</button>
+          <button type="button" disabled={!selectedTime} onClick={checkout}>Agendar Consulta</button>
         </div>
       </form>
     </Shell>
