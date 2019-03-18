@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom'
 import styled from 'styled-components';
 import Carousel from 'tiny-slider-react';
 
@@ -11,7 +12,7 @@ import SearchBar from './SearchBar';
 import Modal from './Modal';
 import SideMenu from './SideMenu';
 
-function Shell({ searchBar = true, children, carousel, title, color }) {
+function Shell({ searchBar = true, children, carousel, title, color, history }) {
   const [mainMenuState, setMainMenuState] = React.useState(false);
   const [citySelectionState, setCitySelectionState] = React.useState(false);
 
@@ -56,16 +57,16 @@ function Shell({ searchBar = true, children, carousel, title, color }) {
           active={mainMenuState}
           close={() => setMainMenuState(false)}
           content={[
-            { name: 'Início', action: () => {} },
-            { name: 'Médicos', action: () => {} },
+            { name: 'Início', action: () => history.push('/categorias') },
+            { name: 'Médicos', action: () => history.push('/medicos') },
             { name: 'Consultas Agendadas', action: () => {} },
             { name: 'Consultas Realizadas', action: () => {} },
-            { name: 'Clínicas', action: () => {} },
+            { name: 'Clínicas', action: () => history.push('/clinicas') },
             { name: 'Farmácias', action: () => {} },
             { name: 'Óticas', action: () => {} },
             { name: 'Ofertas', action: () => {} },
             { name: 'Meus Dados', action: () => {} },
-            { name: 'Sair', action: () => {} },
+            { name: 'Sair', action: () => history.push('/') },
           ]}
         />
 
@@ -90,4 +91,4 @@ const StyledWrapper = styled.div`
   padding-top: 3em;
 `;
 
-export default Shell;
+export default withRouter(Shell);

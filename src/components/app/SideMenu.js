@@ -7,7 +7,7 @@ function SideMenu({ content, active, close }) {
     <>
       <StyledWrapper active={active}>
         {content.map(({ name, action, icon }, index) => (
-          <button key={index} type="text">
+          <button key={index} type="text" onClick={action}>
             {name}
           </button>
         ))}

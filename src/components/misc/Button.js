@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 function Button({ type = 'raised', children, onClick, className, color, disabled }) {
   return (
-    <StyledButton className={`${type} ${className}`} onClick={onClick} color={color} disabled={disabled}>
+    <StyledButton className={`${type} ${className}`} type="button" onClick={onClick} color={color} disabled={disabled}>
       {children}
     </StyledButton>
   );
