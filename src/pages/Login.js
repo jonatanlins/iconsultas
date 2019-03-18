@@ -16,7 +16,7 @@ function Login({ history }) {
   const [formState, { text, email, password }] = useFormState();
   const [mode, setMode] = React.useState('signIn')
 
-  const handleLogin = () => {
+  const handleLogin = event => {
     console.log(formState);
     history.push('/cidades');
   };
