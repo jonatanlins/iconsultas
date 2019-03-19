@@ -6,6 +6,8 @@ import Carousel from 'tiny-slider-react';
 import NavBar from './NavBar';
 import Page from './Page';
 
+
+import { faHome, faUserMd, faClipboardCheck, faClinicMedical, faCapsules, faGlasses, faPercentage, faUser, faTimes } from '@fortawesome/free-solid-svg-icons';
 import carouselImage1 from '../../assets/images/carrossel-01.jpg';
 import carouselImage2 from '../../assets/images/carrossel-02.jpg';
 import SearchBar from './SearchBar';
@@ -57,16 +59,15 @@ function Shell({ searchBar = true, children, carousel, title, color, history }) 
           active={mainMenuState}
           close={() => setMainMenuState(false)}
           content={[
-            { name: 'Início', action: () => history.push('/categorias') },
-            { name: 'Médicos', action: () => history.push('/medicos') },
-            { name: 'Consultas Agendadas', action: () => {} },
-            { name: 'Consultas Realizadas', action: () => {} },
-            { name: 'Clínicas', action: () => history.push('/clinicas') },
-            { name: 'Farmácias', action: () => {} },
-            { name: 'Óticas', action: () => {} },
-            { name: 'Ofertas', action: () => {} },
-            { name: 'Meus Dados', action: () => {} },
-            { name: 'Sair', action: () => history.push('/') },
+            { name: 'Início', icon: faHome, action: () => history.push('/categorias') },
+            { name: 'Médicos', icon: faUserMd, action: () => history.push('/medicos') },
+            { name: 'Consultas', icon: faClipboardCheck, action: () => {} },
+            { name: 'Clínicas', icon: faClinicMedical, action: () => history.push('/clinicas') },
+            { name: 'Farmácias', icon: faCapsules, action: () => {} },
+            { name: 'Óticas', icon: faGlasses, action: () => {} },
+            { name: 'Ofertas', icon: faPercentage, action: () => {} },
+            { name: 'Meus Dados', icon: faUser, action: () => {} },
+            { name: 'Sair', icon: faTimes, action: () => history.push('/') },
           ]}
         />
 

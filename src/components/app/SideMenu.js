@@ -8,7 +8,8 @@ function SideMenu({ content, active, close }) {
       <StyledWrapper active={active}>
         {content.map(({ name, action, icon }, index) => (
           <button key={index} type="text" onClick={action}>
-            {name}
+            {icon && <FontAwesomeIcon icon={icon}/>}
+            <span>{name}</span>
           </button>
         ))}
 
@@ -42,10 +43,16 @@ const StyledWrapper = styled.div`
     color: white;
     font-size: 1.1em;
     text-transform: uppercase;
-    padding: 0.8em 0;
+    padding: 0.8em 1.5em;
     cursor: pointer;
     transition: all 0.2s ease;
     user-select: none;
+    text-align: left;
+
+    svg {
+      margin-right: 1em;
+      width: 1em !important;
+    }
 
     &:hover {
       background: rgba(255, 255, 255, 0.2);
