@@ -37,18 +37,18 @@ function Specialties() {
 
   return (
     <Shell>
-      <div class="accordion">
+      <div className="accordion">
         {specialties.map(({ name, description }, index) => (
-          <div class="item" key={index}>
-            <input type="checkbox" class="trigger" />
-            <div class="header">{name}</div>
-            <div class="content">
+          <div className="item" key={index}>
+            <input type="checkbox" className="trigger" />
+            <div className="header">{name}</div>
+            <div className="content">
               {description.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
 
-              <Link to="/medicos" class="callToAction">
-                Agendar consulta <i class="icon-right-open" />
+              <Link to="/medicos" className="callToAction">
+                Agendar consulta <i className="icon-right-open" />
               </Link>
             </div>
           </div>
