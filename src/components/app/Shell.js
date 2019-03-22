@@ -66,7 +66,7 @@ function Shell({
             </div>
           )}
 
-          {searchBar ? <SearchBar /> : <hr />}
+          {searchBar && <SearchBar />}
         </header>
 
         {children}

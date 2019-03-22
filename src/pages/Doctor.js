@@ -28,7 +28,7 @@ function Doctor({ history }) {
   const checkout = () => history.push('/checkout');
 
   return (
-    <Shell>
+    <Shell searchBar={false}>
       <h1 className="pageTitle">Pediatria</h1>
 
       <div className="doctorInfo">
