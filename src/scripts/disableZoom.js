@@ -1,5 +1,5 @@
-function disableZoom () {
+function disableZoom() {
   document.addEventListener('gesturestart', e => e.preventDefault());
 }
 
-export default disableZoom
+export default disableZoom;

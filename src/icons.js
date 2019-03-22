@@ -9,4 +9,12 @@ import {
   faDollarSign,
 } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faEnvelope, faLock, faUser, faTimes, faCalendarAlt, faMapMarkerAlt, faDollarSign);
+library.add(
+  faEnvelope,
+  faLock,
+  faUser,
+  faTimes,
+  faCalendarAlt,
+  faMapMarkerAlt,
+  faDollarSign
+);

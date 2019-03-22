@@ -19,7 +19,7 @@ const StyledWrapper = styled.div`
   input {
     font-size: 1em;
     border: 1px solid #bbb;
-    border-radius: .5em;
+    border-radius: 0.5em;
     color: black;
     transition: all 0.2s ease;
     padding: 1.3em ${props => (props.icon ? 3 : 1)}em 0.7em 1em;
@@ -46,7 +46,8 @@ const StyledWrapper = styled.div`
     pointer-events: none;
   }
 
-  &.active .label, input:focus ~ .label {
+  &.active .label,
+  input:focus ~ .label {
     font-size: 0.7em;
     left: 1.25em;
     top: 1.7em;

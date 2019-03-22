@@ -8,7 +8,7 @@ import carousel1 from '../assets/images/tutorial-01.png';
 import carousel2 from '../assets/images/tutorial-02.png';
 
 function Tutorial({ history }) {
-  const [carousel, setCarousel] = React.useState(null)
+  const [carousel, setCarousel] = React.useState(null);
 
   const settings = {
     items: 1,
@@ -24,13 +24,13 @@ function Tutorial({ history }) {
 
   const handleContinue = event => {
     if (carousel.slider.getInfo().index < 1) {
-      console.log(event)
-      event.preventDefault()
-      carousel.slider.goTo('next')
+      console.log(event);
+      event.preventDefault();
+      carousel.slider.goTo('next');
     } else {
-      history.push('/login')
+      history.push('/login');
     }
-  }
+  };
 
   return (
     <Page>
@@ -40,7 +40,11 @@ function Tutorial({ history }) {
           <img src={carousel2} alt="Agendar sua consulta nunca foi tão fácil" />
         </Carousel>
 
-        <Link to="/login" className="skipTutorialButton" onClick={handleContinue}>
+        <Link
+          to="/login"
+          className="skipTutorialButton"
+          onClick={handleContinue}
+        >
           Continuar
         </Link>
       </StyledWrapper>

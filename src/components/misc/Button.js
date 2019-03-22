@@ -1,9 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function Button({ type = 'raised', children, onClick, className, color, disabled }) {
+function Button({
+  type = 'raised',
+  children,
+  onClick,
+  className,
+  color,
+  disabled,
+}) {
   return (
-    <StyledButton className={`${type} ${className}`} type="button" onClick={onClick} color={color} disabled={disabled}>
+    <StyledButton
+      className={`${type} ${className}`}
+      type="button"
+      onClick={onClick}
+      color={color}
+      disabled={disabled}
+    >
       {children}
     </StyledButton>
   );
@@ -14,7 +27,7 @@ const StyledButton = styled.button`
     color: white;
     font-size: 1em;
     text-transform: uppercase;
-    border-radius: .5em;
+    border-radius: 0.5em;
     border: none;
     padding: 1em;
     cursor: pointer;

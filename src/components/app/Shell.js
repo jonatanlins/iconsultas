@@ -1,20 +1,36 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import Carousel from 'tiny-slider-react';
 
 import NavBar from './NavBar';
 import Page from './Page';
 
-
-import { faHome, faUserMd, faClipboardCheck, faClinicMedical, faCapsules, faGlasses, faPercentage, faUser, faTimes } from '@fortawesome/free-solid-svg-icons';
+import {
+  faHome,
+  faUserMd,
+  faClipboardCheck,
+  faClinicMedical,
+  faCapsules,
+  faGlasses,
+  faPercentage,
+  faUser,
+  faTimes,
+} from '@fortawesome/free-solid-svg-icons';
 import carouselImage1 from '../../assets/images/carrossel-01.jpg';
 import carouselImage2 from '../../assets/images/carrossel-02.jpg';
 import SearchBar from './SearchBar';
 import Modal from './Modal';
 import SideMenu from './SideMenu';
 
-function Shell({ searchBar = true, children, carousel, title, color, history }) {
+function Shell({
+  searchBar = true,
+  children,
+  carousel,
+  title,
+  color,
+  history,
+}) {
   const [mainMenuState, setMainMenuState] = React.useState(false);
   const [citySelectionState, setCitySelectionState] = React.useState(false);
 
@@ -59,10 +75,22 @@ function Shell({ searchBar = true, children, carousel, title, color, history }) 
           active={mainMenuState}
           close={() => setMainMenuState(false)}
           content={[
-            { name: 'Início', icon: faHome, action: () => history.push('/categorias') },
-            { name: 'Médicos', icon: faUserMd, action: () => history.push('/medicos') },
+            {
+              name: 'Início',
+              icon: faHome,
+              action: () => history.push('/categorias'),
+            },
+            {
+              name: 'Médicos',
+              icon: faUserMd,
+              action: () => history.push('/medicos'),
+            },
             { name: 'Consultas', icon: faClipboardCheck, action: () => {} },
-            { name: 'Clínicas', icon: faClinicMedical, action: () => history.push('/clinicas') },
+            {
+              name: 'Clínicas',
+              icon: faClinicMedical,
+              action: () => history.push('/clinicas'),
+            },
             { name: 'Farmácias', icon: faCapsules, action: () => {} },
             { name: 'Óticas', icon: faGlasses, action: () => {} },
             { name: 'Ofertas', icon: faPercentage, action: () => {} },

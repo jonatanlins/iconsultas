@@ -1,19 +1,24 @@
-import React from 'react'
-import styled from 'styled-components'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faDollarSign, faMapMarkerAlt, faClock, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+  faDollarSign,
+  faMapMarkerAlt,
+  faClock,
+  faCalendarAlt,
+} from '@fortawesome/free-solid-svg-icons';
 
-import Shell from '../components/app/Shell'
-import Button from '../components/misc/Button'
+import Shell from '../components/app/Shell';
+import Button from '../components/misc/Button';
 
-function Checkout () {
-  const [successScreen, setSuccessScreen] = React.useState(false)
+function Checkout() {
+  const [successScreen, setSuccessScreen] = React.useState(false);
 
   const confirm = () => {
-    setSuccessScreen(true)
-  }
+    setSuccessScreen(true);
+  };
 
   return (
     <Shell>
@@ -25,7 +30,7 @@ function Checkout () {
 
         <h3>Local</h3>
         <section>
-          <FontAwesomeIcon icon={faMapMarkerAlt}/>
+          <FontAwesomeIcon icon={faMapMarkerAlt} />
           <div className="content">
             <h4>Clínica José Carlos Ferreira</h4>
             <p>Rua Rodrigues de Abreu, 22</p>
@@ -35,23 +40,35 @@ function Checkout () {
 
         <h3>Data e hora</h3>
         <section>
-          <FontAwesomeIcon icon={faCalendarAlt}/>
-          <div className="content"><h4><em>13/03/2019</em></h4></div>
+          <FontAwesomeIcon icon={faCalendarAlt} />
+          <div className="content">
+            <h4>
+              <em>13/03/2019</em>
+            </h4>
+          </div>
         </section>
         <section>
-          <FontAwesomeIcon icon={faClock}/>
-          <div className="content"><h4><em>15:30</em></h4></div>
+          <FontAwesomeIcon icon={faClock} />
+          <div className="content">
+            <h4>
+              <em>15:30</em>
+            </h4>
+          </div>
         </section>
 
         <h3>Forma de Pagamento</h3>
         <section>
-          <FontAwesomeIcon icon={faDollarSign}/>
+          <FontAwesomeIcon icon={faDollarSign} />
           <div className="content">
-            <h4><em>R$ 250,00 em dinheiro</em></h4>
+            <h4>
+              <em>R$ 250,00 em dinheiro</em>
+            </h4>
           </div>
         </section>
 
-        <Button color="#4cb906" onClick={confirm}>Confirmar</Button>
+        <Button color="#4cb906" onClick={confirm}>
+          Confirmar
+        </Button>
       </StyledCheckout>
 
       <StyledSuccessScreen active={successScreen}>
@@ -60,15 +77,21 @@ function Checkout () {
 
         <p className="strong">Número da consulta</p>
         <p className="emphasis">0096</p>
-        
-        <p className="small">Ou se preferir, ligue ou envie um whatsapp</p>
-        <a href="tel:8137228080" className="phone">(81) 3722 8080</a>
-        <a href="tel:8199781433" className="phone">(81) 9978 1433</a>
 
-        <Link to="/categorias" className="actionButton" replace>Voltar para o Início</Link>
+        <p className="small">Ou se preferir, ligue ou envie um whatsapp</p>
+        <a href="tel:8137228080" className="phone">
+          (81) 3722 8080
+        </a>
+        <a href="tel:8199781433" className="phone">
+          (81) 9978 1433
+        </a>
+
+        <Link to="/categorias" className="actionButton" replace>
+          Voltar para o Início
+        </Link>
       </StyledSuccessScreen>
     </Shell>
-  )
+  );
 }
 
 const StyledCheckout = styled.div`
@@ -89,7 +112,7 @@ const StyledCheckout = styled.div`
     font-size: 1em;
     margin: 2em 0 0;
   }
-  
+
   h4 {
     margin: 0;
     line-height: 1.618;
@@ -125,9 +148,9 @@ const StyledCheckout = styled.div`
 
   button {
     width: 100%;
-    margin-top: 2em; 
+    margin-top: 2em;
   }
-`
+`;
 
 const StyledSuccessScreen = styled.div`
   position: fixed;
@@ -137,7 +160,7 @@ const StyledSuccessScreen = styled.div`
   right: 0;
   bottom: 0;
   z-index: 30;
-  clip-path: circle(${props => props.active ? '200%' : '0'} at 50% 100%);
+  clip-path: circle(${props => (props.active ? '200%' : '0')} at 50% 100%);
   transition: all 1s ease;
   padding: 2em;
   text-align: center;
@@ -173,7 +196,7 @@ const StyledSuccessScreen = styled.div`
 
     &.small {
       font-size: 1.1em;
-      margin: 0 0 .5em;
+      margin: 0 0 0.5em;
     }
   }
 
@@ -192,12 +215,12 @@ const StyledSuccessScreen = styled.div`
     font-size: 1em;
     line-height: 3;
     text-transform: uppercase;
-    border-radius: .5em;
+    border-radius: 0.5em;
     cursor: pointer;
     color: white;
     -webkit-text-decoration: none;
     text-decoration: none;
   }
-`
+`;
 
-export default Checkout
+export default Checkout;

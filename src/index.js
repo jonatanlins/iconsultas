@@ -4,7 +4,7 @@ import './index.css';
 import './fontello.css';
 import App from './App';
 import * as serviceWorker from './scripts/serviceWorker';
-import disableZoom from './scripts/disableZoom'
+import disableZoom from './scripts/disableZoom';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
@@ -13,4 +13,4 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-disableZoom()
+disableZoom();

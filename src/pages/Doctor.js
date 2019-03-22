@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components'
-import {withRouter} from 'react-router-dom'
+import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 import { useFormState } from 'react-use-form-state';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -12,20 +12,20 @@ import locationIcon from '../assets/icons/location.png';
 
 function Doctor({ history }) {
   const [position, setPosition] = React.useState(0);
-  const [selectedDate, setDate] = React.useState(null)
-  const [selectedTime, setTime] = React.useState(null)
-  const [formState, { radio }] = useFormState()
+  const [selectedDate, setDate] = React.useState(null);
+  const [selectedTime, setTime] = React.useState(null);
+  const [formState, { radio }] = useFormState();
 
   const selectDate = date => {
     if (date.hours.length) {
-      setDate(date)
-      setTime(null)
+      setDate(date);
+      setTime(null);
     }
-  }
+  };
 
   const nextStep = () => setPosition(position + 1);
 
-  const checkout = () => history.push('/checkout')
+  const checkout = () => history.push('/checkout');
 
   return (
     <Shell>
@@ -39,11 +39,16 @@ function Doctor({ history }) {
       </div>
 
       <StyledStepMarker>
-        {['dollar-sign', 'map-marker-alt', 'calendar-alt'].map((icon, index) => (
-          <div key={index} className={`step ${position === index ? 'active' : ''}`}>
-            <FontAwesomeIcon icon={icon}/>
-          </div>
-        ))}
+        {['dollar-sign', 'map-marker-alt', 'calendar-alt'].map(
+          (icon, index) => (
+            <div
+              key={index}
+              className={`step ${position === index ? 'active' : ''}`}
+            >
+              <FontAwesomeIcon icon={icon} />
+            </div>
+          )
+        )}
       </StyledStepMarker>
 
       <form
@@ -69,7 +74,12 @@ function Doctor({ history }) {
           <h3>Escolha local de atendimento</h3>
           <ul className="list">
             <li className="location">
-              <input type="radio" name="location-1" id="" {...radio('location', 'l1')}/>
+              <input
+                type="radio"
+                name="location-1"
+                id=""
+                {...radio('location', 'l1')}
+              />
               <img src={locationIcon} alt="" className="icon" />
               <div className="description">
                 <p>
@@ -81,7 +91,12 @@ function Doctor({ history }) {
               <div className="check" />
             </li>
             <li className="location">
-              <input type="radio" name="location" id="" {...radio('location', 'l2')}/>
+              <input
+                type="radio"
+                name="location"
+                id=""
+                {...radio('location', 'l2')}
+              />
               <img src={locationIcon} alt="" className="icon" />
               <div className="description">
                 <p>
@@ -93,38 +108,53 @@ function Doctor({ history }) {
               <div className="check" />
             </li>
           </ul>
-          <button type="button" disabled={!formState.values.location} onClick={nextStep}>
+          <button
+            type="button"
+            disabled={!formState.values.location}
+            onClick={nextStep}
+          >
             Próximo
           </button>
         </div>
 
         <div className="step">
           <h3>Escolha a data e hora</h3>
-          
+
           <StyledMomentSelect>
             <ul className="dateSelect">
               {dates.map((date, index) => {
-                const className = (selectedDate === date ? 'selected' : '') + (!date.hours.length ? 'disabled' : '')
-                const onClick = () => selectDate(date)
+                const className =
+                  (selectedDate === date ? 'selected' : '') +
+                  (!date.hours.length ? 'disabled' : '');
+                const onClick = () => selectDate(date);
 
                 return (
                   <li key={index} className={className} onClick={onClick}>
-                    <em>{date.name.substring(0,3)}</em><br/>{date.day}
+                    <em>{date.name.substring(0, 3)}</em>
+                    <br />
+                    {date.day}
                   </li>
-                )
+                );
               })}
             </ul>
 
             <ul className="timeSelect">
-              {selectedDate && selectedDate.hours.map((time, index) =>
-                <li key={index} className={selectedTime === time ? 'selected' : ''} onClick={() => setTime(time)}>
-                  {time}
-                </li>
-              )}
+              {selectedDate &&
+                selectedDate.hours.map((time, index) => (
+                  <li
+                    key={index}
+                    className={selectedTime === time ? 'selected' : ''}
+                    onClick={() => setTime(time)}
+                  >
+                    {time}
+                  </li>
+                ))}
             </ul>
           </StyledMomentSelect>
 
-          <button type="button" disabled={!selectedTime} onClick={checkout}>Agendar Consulta</button>
+          <button type="button" disabled={!selectedTime} onClick={checkout}>
+            Agendar Consulta
+          </button>
         </div>
       </form>
     </Shell>
@@ -139,16 +169,16 @@ const StyledMomentSelect = styled.div`
     list-style: none;
     user-select: none;
     box-sizing: border-box;
-  
+
     li {
-      padding: .8em;
+      padding: 0.8em;
       margin: 0.1em;
       background-color: #eee;
       color: #555;
       cursor: pointer;
       text-align: center;
-      transition: all .2s ease;
-  
+      transition: all 0.2s ease;
+
       em {
         font-style: normal;
         font-weight: bold;
@@ -164,7 +194,7 @@ const StyledMomentSelect = styled.div`
       }
     }
   }
-  
+
   .dateSelect {
     overflow-x: auto;
     width: 100vw;
@@ -174,7 +204,7 @@ const StyledMomentSelect = styled.div`
     flex-wrap: wrap;
     justify-content: center;
   }
-`
+`;
 
 const StyledStepMarker = styled.div`
   display: flex;
@@ -186,7 +216,7 @@ const StyledStepMarker = styled.div`
     content: '';
     position: absolute;
     background: #4cb906;
-    height: .2em;
+    height: 0.2em;
     top: 2.4em;
     left: 10%;
     width: 80%;
@@ -199,26 +229,103 @@ const StyledStepMarker = styled.div`
     line-height: 2em;
     z-index: 1;
     background: white;
-    border: .2em solid #4cb906;
-    padding: .3em;
+    border: 0.2em solid #4cb906;
+    padding: 0.3em;
     text-align: center;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
 
     &.active {
       background: #4cb906;
       color: white;
     }
   }
-`
+`;
 
 const dates = [
-  { name: 'Segunda', day: '10/03', hours: ['08:15', '08:30', '09:45', '10:30', '12:15', '12:30',  '15:15', '15:30', '16:30'] },
-  { name: 'Terça', day: '11/03', hours: ['08:15', '08:30', '08:45', '09:00', '10:30', '12:15', '12:30', '14:00', '15:15', '15:30', '16:30'] },
-  { name: 'Quarta', day: '12/03', hours: ['08:45', '09:00', '09:45', '10:30', '12:15', '12:30', '15:15', '15:30', '16:30'] },
-  { name: 'Quinta', day: '13/03', hours: ['08:15', '08:30', '09:00', '09:45', '10:30', '12:30', '14:00', '15:15', '15:30', '16:30'] },
-  { name: 'Sexta', day: '14/03', hours: ['08:15', '08:30', '08:45', '09:00', '12:30', '14:00', '15:15', '15:30', '16:30'] },
-  { name: 'Sábado', day: '15/03', hours: ['08:15', '08:30', '08:45', '09:00', '09:45', '10:30', '11:20'] },
+  {
+    name: 'Segunda',
+    day: '10/03',
+    hours: [
+      '08:15',
+      '08:30',
+      '09:45',
+      '10:30',
+      '12:15',
+      '12:30',
+      '15:15',
+      '15:30',
+      '16:30',
+    ],
+  },
+  {
+    name: 'Terça',
+    day: '11/03',
+    hours: [
+      '08:15',
+      '08:30',
+      '08:45',
+      '09:00',
+      '10:30',
+      '12:15',
+      '12:30',
+      '14:00',
+      '15:15',
+      '15:30',
+      '16:30',
+    ],
+  },
+  {
+    name: 'Quarta',
+    day: '12/03',
+    hours: [
+      '08:45',
+      '09:00',
+      '09:45',
+      '10:30',
+      '12:15',
+      '12:30',
+      '15:15',
+      '15:30',
+      '16:30',
+    ],
+  },
+  {
+    name: 'Quinta',
+    day: '13/03',
+    hours: [
+      '08:15',
+      '08:30',
+      '09:00',
+      '09:45',
+      '10:30',
+      '12:30',
+      '14:00',
+      '15:15',
+      '15:30',
+      '16:30',
+    ],
+  },
+  {
+    name: 'Sexta',
+    day: '14/03',
+    hours: [
+      '08:15',
+      '08:30',
+      '08:45',
+      '09:00',
+      '12:30',
+      '14:00',
+      '15:15',
+      '15:30',
+      '16:30',
+    ],
+  },
+  {
+    name: 'Sábado',
+    day: '15/03',
+    hours: ['08:15', '08:30', '08:45', '09:00', '09:45', '10:30', '11:20'],
+  },
   { name: 'Domingo', day: '16/03', hours: [] },
-]
+];
 
 export default withRouter(Doctor);

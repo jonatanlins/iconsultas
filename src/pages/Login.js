@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { useFormState } from 'react-use-form-state';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import {faFacebookF} from '@fortawesome/free-brands-svg-icons'
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 
 import Page from '../components/app/Page';
 import Input from '../components/form/Input';
@@ -14,7 +14,7 @@ import iConsultasLogo from '../assets/images/logo-titulo.png';
 
 function Login({ history }) {
   const [formState, { text, email, password }] = useFormState();
-  const [mode, setMode] = React.useState('signIn')
+  const [mode, setMode] = React.useState('signIn');
 
   const handleLogin = event => {
     console.log(formState);
@@ -23,12 +23,7 @@ function Login({ history }) {
 
   const signInForm = (
     <StyledForm>
-      <Input
-        label="Email"
-        type="email"
-        icon="envelope"
-        {...email('email')}
-      />
+      <Input label="Email" type="email" icon="envelope" {...email('email')} />
       <Input
         label="Senha"
         type="password"
@@ -39,29 +34,24 @@ function Login({ history }) {
         Entrar
       </Button>
       <Button onClick={handleLogin} className="actionButton" color="#3c4c84">
-        <FontAwesomeIcon icon={faFacebookF}/>
+        <FontAwesomeIcon icon={faFacebookF} />
         Login com Facebook
       </Button>
       <Button type="text" className="secondActionButton">
         Esqueci minha senha
       </Button>
     </StyledForm>
-  )
+  );
 
   const signUpForm = (
     <StyledForm>
       <Button onClick={handleLogin} className="actionButton" color="#3c4c84">
-        <FontAwesomeIcon icon={faFacebookF}/>
+        <FontAwesomeIcon icon={faFacebookF} />
         Login com Facebook
       </Button>
 
       <Input label="Nome" type="email" icon="user" {...text('name')} />
-      <Input
-        label="Email"
-        type="email"
-        icon="envelope"
-        {...email('email')}
-      />
+      <Input label="Email" type="email" icon="envelope" {...email('email')} />
       <Input
         label="Senha"
         type="password"
@@ -78,12 +68,12 @@ function Login({ history }) {
         Cadastre-se
       </Button>
     </StyledForm>
-  )
+  );
 
   const modes = {
     signIn: signInForm,
     signUp: signUpForm,
-  }
+  };
 
   return (
     <Page color="primary">
@@ -92,8 +82,18 @@ function Login({ history }) {
 
         <div className="forms">
           <div className="buttons">
-            <button className={mode === 'signUp' ? 'active' : ''} onClick={() => setMode('signUp')}>Quero me cadastrar</button>
-            <button className={mode === 'signIn' ? 'active' : ''} onClick={() => setMode('signIn')}>Já sou cadastrado</button>
+            <button
+              className={mode === 'signUp' ? 'active' : ''}
+              onClick={() => setMode('signUp')}
+            >
+              Quero me cadastrar
+            </button>
+            <button
+              className={mode === 'signIn' ? 'active' : ''}
+              onClick={() => setMode('signIn')}
+            >
+              Já sou cadastrado
+            </button>
           </div>
 
           {modes[mode]}
@@ -113,7 +113,7 @@ const StyledWrapper = styled.div`
   }
 
   .forms {
-    border-radius: .5em;
+    border-radius: 0.5em;
     overflow: hidden;
     background: white;
 
@@ -151,7 +151,7 @@ const StyledForm = styled.form`
     width: 100%;
     margin: 1em 0;
   }
-  
+
   .secondActionButton {
     font-size: 0.8em;
     color: #555;
