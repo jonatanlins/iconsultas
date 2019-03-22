@@ -56,21 +56,6 @@ function Doctor({ history }) {
         style={{ transform: `translateX(${-position * 100}%)` }}
       >
         <div className="step">
-          <ul className="list">
-            <li className="price">
-              <img src={moneyIcon} alt="" className="icon" />
-              <div className="description">
-                <h4>A partir de R$300 ou Convênio</h4>
-                <p>Dinheiro / Cartão / Cheque</p>
-              </div>
-            </li>
-          </ul>
-          <button type="button" onClick={nextStep}>
-            Agendar Consulta
-          </button>
-        </div>
-
-        <div className="step">
           <h3>Escolha local de atendimento</h3>
           <ul className="list">
             <li className="location">
@@ -114,6 +99,21 @@ function Doctor({ history }) {
             onClick={nextStep}
           >
             Próximo
+          </button>
+        </div>
+
+        <div className="step">
+          <ul className="list">
+            <li className="price">
+              <img src={moneyIcon} alt="" className="icon" />
+              <div className="description">
+                <h4>A partir de R$300 ou Convênio</h4>
+                <p>Dinheiro / Cartão / Cheque</p>
+              </div>
+            </li>
+          </ul>
+          <button type="button" onClick={nextStep}>
+            Agendar Consulta
           </button>
         </div>
 
