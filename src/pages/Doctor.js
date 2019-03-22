@@ -44,6 +44,7 @@ function Doctor({ history }) {
             <div
               key={index}
               className={`step ${position === index ? 'active' : ''}`}
+              onClick={() => index < position && setPosition(index)}
             >
               <FontAwesomeIcon icon={icon} />
             </div>
@@ -233,10 +234,15 @@ const StyledStepMarker = styled.div`
     padding: 0.3em;
     text-align: center;
     transition: all 0.2s ease;
+    cursor: pointer;
 
     &.active {
       background: #4cb906;
       color: white;
+
+      ~ .step {
+        cursor: default;
+      }
     }
   }
 `;
