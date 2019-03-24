@@ -58,12 +58,22 @@ function Shell({
           />
 
           {carousel && (
-            <div className="logo">
-              <Carousel settings={carouselSettings} className="logo">
-                <img src={carouselImage1} alt="Logotipo do iConsultas" />
-                <img src={carouselImage2} alt="Logotipo do iConsultas" />
-              </Carousel>
-            </div>
+            <Carousel settings={carouselSettings}>
+              <div>
+                <img
+                  src={carouselImage1}
+                  className="logo"
+                  alt="Logotipo do i Consultas"
+                />
+              </div>
+              <div>
+                <img
+                  src={carouselImage2}
+                  className="logo"
+                  alt="Logotipo do i Consultas"
+                />
+              </div>
+            </Carousel>
           )}
 
           {searchBar && <SearchBar />}
