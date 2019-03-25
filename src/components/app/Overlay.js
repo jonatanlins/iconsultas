@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function Overlay({ close, active, children, className }) {
+function Overlay({ close = () => {}, active, children, className }) {
   const handleClick = event => event.target === event.currentTarget && close();
 
   return (

@@ -5,18 +5,17 @@ import { useFormState } from 'react-use-form-state';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Shell from '../components/app/Shell';
-import PaymentPage from './Payment';
+import Input from '../components/form/Input';
+import Select from '../components/form/Select';
 
 import medicImage from '../assets/images/dr_luiz_bandim.png';
-import moneyIcon from '../assets/icons/money.png';
 import locationIcon from '../assets/icons/location.png';
 
 function Doctor({ history }) {
   const [position, setPosition] = React.useState(0);
   const [selectedDate, setDate] = React.useState(null);
   const [selectedTime, setTime] = React.useState(null);
-  const [paymentModal, setPaymentModal] = React.useState(false);
-  const [formState, { radio }] = useFormState();
+  const [formState, { radio, text, select }] = useFormState();
 
   const selectDate = date => {
     if (date.hours.length) {
@@ -25,9 +24,12 @@ function Doctor({ history }) {
     }
   };
 
-  const selectPayment = () => {
-    nextStep();
-    setPaymentModal(false);
+  const validatePaymentMethod = () => {
+    if (formState.values.payment === 'convenio') {
+      return formState.values.covenantCode;
+    } else {
+      return formState.values.payment;
+    }
   };
 
   const nextStep = () => setPosition(position + 1);
@@ -45,7 +47,7 @@ function Doctor({ history }) {
         <p>Pediatria / Alergologia / Imunoterapia</p>
       </div>
 
-      <StyledStepMarker>
+      <StyledStepMarker percentage={position * 50}>
         {['dollar-sign', 'map-marker-alt', 'calendar-alt'].map(
           (icon, index) => (
             <div
@@ -67,12 +69,7 @@ function Doctor({ history }) {
           <h3>Escolha local de atendimento</h3>
           <ul className="list">
             <li className="location">
-              <input
-                type="radio"
-                name="location-1"
-                id=""
-                {...radio('location', 'l1')}
-              />
+              <input type="radio" {...radio('location', 'l1')} />
               <img src={locationIcon} alt="" className="icon" />
               <div className="description">
                 <p>
@@ -84,12 +81,7 @@ function Doctor({ history }) {
               <div className="check" />
             </li>
             <li className="location">
-              <input
-                type="radio"
-                name="location"
-                id=""
-                {...radio('location', 'l2')}
-              />
+              <input type="radio" {...radio('location', 'l2')} />
               <img src={locationIcon} alt="" className="icon" />
               <div className="description">
                 <p>
@@ -111,17 +103,78 @@ function Doctor({ history }) {
         </div>
 
         <div className="step">
-          <ul className="list">
-            <li className="price">
-              <img src={moneyIcon} alt="" className="icon" />
+          <h3>Escolha forma de pagamento</h3>
+
+          <StyledPaymentList className="list">
+            <li className="location">
+              <input type="radio" {...radio('payment', 'dinheiro')} />
+
               <div className="description">
-                <h4>A partir de R$300 ou Convênio</h4>
-                <p>Dinheiro / Cartão / Cheque</p>
+                <h4>Dinheiro</h4>
+                <p>A ser pago no local de atendimento</p>
+                <span className="emphasis">R$ 300</span>
               </div>
+
+              <div className="check" />
             </li>
-          </ul>
-          <button type="button" onClick={() => setPaymentModal(true)}>
-            Agendar Consulta
+
+            <li className="location">
+              <input type="radio" {...radio('payment', 'cheque')} />
+
+              <div className="description">
+                <h4>Cheque</h4>
+                <p>A ser pago no local de atendimento</p>
+                <span className="emphasis">R$ 300</span>
+              </div>
+
+              <div className="check" />
+            </li>
+
+            <li className="location">
+              <input type="radio" {...radio('payment', 'debito')} />
+
+              <div className="description">
+                <h4>Cartão de Débito</h4>
+                <p>A ser pago no local de atendimento</p>
+                <span className="emphasis">R$ 300</span>
+              </div>
+
+              <div className="check" />
+            </li>
+
+            <li className="location">
+              <input type="radio" {...radio('payment', 'convenio')} />
+
+              <div className="description">
+                <h4>Convênio</h4>
+                <p>Informe o seu convênio e o código</p>
+                <span className="emphasis">Escolher</span>
+              </div>
+
+              <div className="check" />
+            </li>
+          </StyledPaymentList>
+
+          {formState.values.payment === 'convenio' && (
+            <StyledCovenantForm>
+              <Select {...select('covenantType')}>
+                <option value="a">Convênio A</option>
+                <option value="b">Convênio B</option>
+              </Select>
+
+              <Input
+                label="Digite o número do convênio"
+                {...text('covenantCode')}
+              />
+            </StyledCovenantForm>
+          )}
+
+          <button
+            type="button"
+            disabled={!validatePaymentMethod()}
+            onClick={nextStep}
+          >
+            Próximo
           </button>
         </div>
 
@@ -165,10 +218,6 @@ function Doctor({ history }) {
           </button>
         </div>
       </form>
-
-      <StyledPaymentPage active={paymentModal}>
-        <PaymentPage onSubmit={selectPayment} />
-      </StyledPaymentPage>
     </Shell>
   );
 }
@@ -228,7 +277,11 @@ const StyledStepMarker = styled.div`
   &:before {
     content: '';
     position: absolute;
-    background: #4cb906;
+    background: linear-gradient(
+      to right,
+      #4cb906 ${props => props.percentage}%,
+      #888 ${props => props.percentage}%
+    );
     height: 0.2em;
     top: 2.4em;
     left: 10%;
@@ -254,21 +307,25 @@ const StyledStepMarker = styled.div`
 
       ~ .step {
         cursor: default;
+        color: #888;
+        border-color: #888;
       }
     }
   }
 `;
 
-const StyledPaymentPage = styled.div`
-  position: fixed;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: white;
-  padding-top: 3em;
-  transition: all 0.5s ease;
-  top: ${props => (props.active ? 0 : 100)}%;
-  z-index: 5;
+const StyledPaymentList = styled.ul`
+  h4 {
+    margin: 0 0 0.5em;
+  }
+
+  p {
+    margin: 0 0 0.7em;
+  }
+`;
+
+const StyledCovenantForm = styled.div`
+  padding: 3em 1.4em 1em;
 `;
 
 const dates = [
