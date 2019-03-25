@@ -5,6 +5,7 @@ import { useFormState } from 'react-use-form-state';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Shell from '../components/app/Shell';
+import PaymentPage from './Payment';
 
 import medicImage from '../assets/images/dr_luiz_bandim.png';
 import moneyIcon from '../assets/icons/money.png';
@@ -14,6 +15,7 @@ function Doctor({ history }) {
   const [position, setPosition] = React.useState(0);
   const [selectedDate, setDate] = React.useState(null);
   const [selectedTime, setTime] = React.useState(null);
+  const [paymentModal, setPaymentModal] = React.useState(false);
   const [formState, { radio }] = useFormState();
 
   const selectDate = date => {
@@ -21,6 +23,11 @@ function Doctor({ history }) {
       setDate(date);
       setTime(null);
     }
+  };
+
+  const selectPayment = () => {
+    nextStep();
+    setPaymentModal(false);
   };
 
   const nextStep = () => setPosition(position + 1);
@@ -113,7 +120,7 @@ function Doctor({ history }) {
               </div>
             </li>
           </ul>
-          <button type="button" onClick={nextStep}>
+          <button type="button" onClick={() => setPaymentModal(true)}>
             Agendar Consulta
           </button>
         </div>
@@ -158,6 +165,10 @@ function Doctor({ history }) {
           </button>
         </div>
       </form>
+
+      <StyledPaymentPage active={paymentModal}>
+        <PaymentPage onSubmit={selectPayment} />
+      </StyledPaymentPage>
     </Shell>
   );
 }
@@ -170,6 +181,7 @@ const StyledMomentSelect = styled.div`
     list-style: none;
     user-select: none;
     box-sizing: border-box;
+    justify-content: center;
 
     li {
       padding: 0.8em;
@@ -245,6 +257,18 @@ const StyledStepMarker = styled.div`
       }
     }
   }
+`;
+
+const StyledPaymentPage = styled.div`
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  padding-top: 3em;
+  transition: all 0.5s ease;
+  top: ${props => (props.active ? 0 : 100)}%;
+  z-index: 5;
 `;
 
 const dates = [
