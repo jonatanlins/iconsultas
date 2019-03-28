@@ -19,7 +19,7 @@ function Router() {
     <BrowserRouter>
       <Route
         render={({ location }) => (
-          <TransitionGroup className="transition-group">
+          <TransitionGroup>
             <CSSTransition key={location.key} timeout={500} classNames="page">
               <Switch location={location}>
                 <Route path="/" exact component={Tutorial} />

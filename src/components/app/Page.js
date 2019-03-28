@@ -33,17 +33,17 @@ const colors = {
 
 const StyledPage = styled.div`
   background-color: ${({ color }) => colors[color] || color || colors.default};
-  min-height: 100vh;
 
   &.page-enter {
     animation: ${slideInRight} 500ms forwards;
     overflow: hidden;
+    width: 100%;
   }
   &.page-exit {
     animation: ${slideOutLeft} 500ms forwards;
     position: absolute;
     top: 0;
-    width: 100vw;
+    width: 100%;
     overflow: hidden;
   }
 `;

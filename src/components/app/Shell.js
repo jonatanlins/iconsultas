@@ -128,6 +128,7 @@ function Shell({
 
 const StyledWrapper = styled.div`
   padding-top: 3em;
+  min-height: 100vh;
 `;
 
 export default withRouter(Shell);
