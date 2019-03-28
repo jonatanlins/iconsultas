@@ -20,6 +20,7 @@ function Doctor({ history }) {
   const [step, setStep] = React.useState(0);
   const [selectedDate, setDate] = React.useState(null);
   const [selectedTime, setTime] = React.useState(null);
+  const [stepAction, setStepAction] = React.useState('forward');
   const [formState, { radio, text, select }] = useFormState();
 
   const selectDate = date => {
@@ -37,7 +38,15 @@ function Doctor({ history }) {
     }
   };
 
-  const nextStep = () => setStep(step + 1);
+  const selectAPreviousStep = step => {
+    setStepAction('backward');
+    setTimeout(() => setStep(step), 0);
+  };
+
+  const nextStep = () => {
+    setStepAction('forward');
+    setTimeout(() => setStep(step + 1), 0);
+  };
 
   const checkout = () => history.push('/checkout');
 
@@ -55,8 +64,9 @@ function Doctor({ history }) {
       <form>
         <Steps
           step={step}
-          onChangeStep={setStep}
+          onChangeStep={selectAPreviousStep}
           icons={[faMapMarkerAlt, faDollarSign, faCalendarAlt]}
+          action={stepAction}
         >
           <div className="step">
             <h3>Escolha local de atendimento</h3>

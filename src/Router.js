@@ -20,7 +20,7 @@ function Router() {
       <Route
         render={({ location }) => (
           <TransitionGroup>
-            <CSSTransition key={location.key} timeout={500} classNames="page">
+            <CSSTransition key={location.key} timeout={500} classNames="slide">
               <Switch location={location}>
                 <Route path="/" exact component={Tutorial} />
                 <Route path="/login" component={Login} />

@@ -5,7 +5,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import Page from '../app/Page';
 
-function Steps({ children, step, onChangeStep, icons }) {
+function Steps({ children, step, onChangeStep, icons, action = 'forward' }) {
   const percentage = (step * 100) / (icons.length - 1);
 
   return (
@@ -24,8 +24,8 @@ function Steps({ children, step, onChangeStep, icons }) {
 
       <StyledWrapper step={step} className="steps">
         <TransitionGroup>
-          <CSSTransition key={step} timeout={500} classNames="page">
-            <Page>{children[step]}</Page>
+          <CSSTransition key={step} timeout={500} classNames="slide">
+            <Page reverse={action === 'backward'}>{children[step]}</Page>
           </CSSTransition>
         </TransitionGroup>
       </StyledWrapper>
