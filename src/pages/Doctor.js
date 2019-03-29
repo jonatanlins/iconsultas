@@ -72,7 +72,11 @@ function Doctor({ history }) {
             <h3>Escolha local de atendimento</h3>
             <ul className="list">
               <li className="location">
-                <input type="radio" {...radio('location', 'l1')} />
+                <input
+                  type="radio"
+                  {...radio('location', 'l1')}
+                  onClick={nextStep}
+                />
                 <img src={locationIcon} alt="" className="icon" />
                 <div className="description">
                   <p>
@@ -84,7 +88,11 @@ function Doctor({ history }) {
                 <div className="check" />
               </li>
               <li className="location">
-                <input type="radio" {...radio('location', 'l2')} />
+                <input
+                  type="radio"
+                  {...radio('location', 'l2')}
+                  onClick={nextStep}
+                />
                 <img src={locationIcon} alt="" className="icon" />
                 <div className="description">
                   <p>
