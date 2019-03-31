@@ -40,7 +40,7 @@ const StyledWrapper = styled.div`
 const StyledMarker = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 1em;
+  padding: .5em 1em 0;
   position: relative;
 
   &:before {

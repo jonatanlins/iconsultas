@@ -93,6 +93,7 @@ h1.pageTitle {
   color: white;
   font-style: italic;
   font-size: 1.5em;
+  line-height: 1;
   padding: 0 0.5em 0.3em;
 }
 
@@ -304,7 +305,7 @@ h1.pageTitle {
 
 .doctorInfo .profilePicture {
   border-radius: 999px;
-  width: 42%;
+  width: 40%;
 }
 
 .doctorInfo .name {
@@ -332,11 +333,11 @@ h1.pageTitle {
   color: #f50000;
   text-align: center;
   font-weight: 400;
-  margin-bottom: 0;
+  margin: 0.5em 0;
 }
 
 .steps .step ul.list {
-  margin: 2em 0 0;
+  margin: 1em 0 0;
   padding: 0;
   list-style: none;
   border-top: 1px solid #ddd;
