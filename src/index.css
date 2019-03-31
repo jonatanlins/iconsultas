@@ -300,19 +300,27 @@ h1.pageTitle {
 
 .doctorInfo {
   text-align: center;
-  margin: 1em;
+  margin: 1em 1em 2em;
+}
+
+.doctorInfo:after {
+  content: '';
+  display: block;
+  clear: both;
 }
 
 .doctorInfo .profilePicture {
   border-radius: 999px;
   width: 40%;
+  float: left;
 }
 
 .doctorInfo .name {
   font-style: italic;
   color: #f50000;
   font-weight: bold;
-  margin: 0.3em;
+  margin: 0;
+  line-height: 2.2;
 }
 
 .doctorInfo p {
