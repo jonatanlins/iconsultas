@@ -625,14 +625,11 @@ hr {
   margin: 0;
 }
 
-.accordion .item .trigger:hover ~ .header,
 .accordion .item .trigger:checked ~ .header {
   background: #d40000;
   color: white;
 }
 
-.accordion .item .trigger:hover ~ .header:before,
-.accordion .item .trigger:hover ~ .header:after,
 .accordion .item .trigger:checked ~ .header:before,
 .accordion .item .trigger:checked ~ .header:after {
   background: white;
