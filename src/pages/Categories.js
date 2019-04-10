@@ -1,7 +1,6 @@
 import React from 'react';
 import Shell from '../components/app/Shell';
 import { Link } from 'react-router-dom';
-import Carousel from 'tiny-slider-react';
 
 import phonendoscopeIcon from '../assets/icons/phonendoscope.png';
 import pharmacyIcon from '../assets/icons/pharmacy.png';
@@ -12,44 +11,19 @@ import flaskIcon from '../assets/icons/flask.png';
 
 function Categorias() {
   const categories = [
+    { name: 'Clínicas Médicas', path: '/clinicas', icon: pharmacyIcon },
     { name: 'Médicos', path: '/especialidades/2693', icon: phonendoscopeIcon },
-    { name: 'Clínicas', path: '/clinicas', icon: pharmacyIcon },
-    { name: 'Ofertas', path: '', icon: discountsIcon },
-    { name: 'Farmácias', path: '', icon: pillsBottleIcon },
-    { name: 'Óticas', path: '', icon: oticIcon },
-    { name: 'Exames', path: '', icon: flaskIcon },
+    { name: 'Clínicas Odontológicas', path: '/clinicas', icon: pharmacyIcon },
+    {
+      name: 'Dentistas',
+      path: '/especialidades/2693',
+      icon: phonendoscopeIcon,
+    },
   ];
-
-  const carouselSettings = {
-    items: 3,
-    slideBy: 1,
-    controls: false,
-    nav: false,
-    gutter: 16,
-    edgePadding: 16,
-    preventScrollOnTouch: 'auto',
-    mouseDrag: true,
-    swipeAngle: 45,
-    autoplay: true,
-    autoplayButtonOutput: false,
-  };
 
   return (
     <Shell carousel searchBar color="grey">
-      <div className="categoryButtons">
-        {categories.slice(0, 2).map(CategoryButton)}
-      </div>
-
-      <button className="showAllCategories" onClick={() => {}}>
-        <i className="icon-plus-squared" />
-        Ver todos
-      </button>
-
-      <div className="moreCategoryButtons">
-        <Carousel settings={carouselSettings}>
-          {categories.slice(2).map(CategoryButton)}
-        </Carousel>
-      </div>
+      <div className="categoryButtons">{categories.map(CategoryButton)}</div>
     </Shell>
   );
 }
