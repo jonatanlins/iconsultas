@@ -118,7 +118,11 @@ function Doctor({ history }) {
 
             <StyledPaymentList className="list">
               <li className="location">
-                <input type="radio" {...radio('payment', 'dinheiro')} />
+                <input
+                  type="radio"
+                  {...radio('payment', 'dinheiro')}
+                  onClick={nextStep}
+                />
 
                 <div className="description">
                   <h4>Dinheiro</h4>
@@ -130,7 +134,11 @@ function Doctor({ history }) {
               </li>
 
               <li className="location">
-                <input type="radio" {...radio('payment', 'cheque')} />
+                <input
+                  type="radio"
+                  {...radio('payment', 'cheque')}
+                  onClick={nextStep}
+                />
 
                 <div className="description">
                   <h4>Cheque</h4>
@@ -142,7 +150,11 @@ function Doctor({ history }) {
               </li>
 
               <li className="location">
-                <input type="radio" {...radio('payment', 'debito')} />
+                <input
+                  type="radio"
+                  {...radio('payment', 'debito')}
+                  onClick={nextStep}
+                />
 
                 <div className="description">
                   <h4>Cartão de Débito</h4>
