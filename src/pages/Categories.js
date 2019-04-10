@@ -4,10 +4,6 @@ import { Link } from 'react-router-dom';
 
 import phonendoscopeIcon from '../assets/icons/phonendoscope.png';
 import pharmacyIcon from '../assets/icons/pharmacy.png';
-import discountsIcon from '../assets/icons/discounts.png';
-import pillsBottleIcon from '../assets/icons/pills-bottle.png';
-import oticIcon from '../assets/icons/otic.png';
-import flaskIcon from '../assets/icons/flask.png';
 
 function Categorias() {
   const categories = [
