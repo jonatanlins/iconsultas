@@ -793,9 +793,11 @@ hr {
   font-style: italic;
 }
 
-.categoryButtons .item .icon {
-  width: 55%;
-  margin: 10px auto;
+.categoryButtons .item svg {
+  width: 100%;
+  font-size: 5em;
+  margin-top: 0.5em;
+  color: #482ecc;
   display: block;
 }
 

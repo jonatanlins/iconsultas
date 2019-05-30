@@ -1,20 +1,25 @@
 import React from 'react';
 import Shell from '../components/app/Shell';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import phonendoscopeIcon from '../assets/icons/phonendoscope.png';
-import pharmacyIcon from '../assets/icons/pharmacy.png';
+import {
+  faClinicMedical,
+  faTooth,
+  faBriefcaseMedical,
+  faStethoscope,
+} from '@fortawesome/free-solid-svg-icons';
 
 function Categorias() {
   const categories = [
-    { name: 'Clínicas Médicas', path: '/clinicas', icon: pharmacyIcon },
-    { name: 'Médicos', path: '/especialidades/2693', icon: phonendoscopeIcon },
-    { name: 'Clínicas Odontológicas', path: '/clinicas', icon: pharmacyIcon },
+    { name: 'Clínicas Médicas', path: '/clinicas', icon: faClinicMedical },
+    { name: 'Médicos', path: '/especialidades/2693', icon: faStethoscope },
     {
-      name: 'Dentistas',
-      path: '/especialidades/2693',
-      icon: phonendoscopeIcon,
+      name: 'Clínicas Odontológicas',
+      path: '/clinicas',
+      icon: faBriefcaseMedical,
     },
+    { name: 'Dentistas', path: '/especialidades/2693', icon: faTooth },
   ];
 
   return (
@@ -27,7 +32,7 @@ function Categorias() {
 const CategoryButton = ({ name, path, icon }) => (
   <Link className="item" to={path} key={name}>
     <span className="label">{name}</span>
-    <img className="icon" src={icon} alt={`Ícone de ${name}`} />
+    <FontAwesomeIcon icon={icon} />
   </Link>
 );
 

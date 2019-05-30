@@ -18,7 +18,7 @@ function Login({ history }) {
 
   const handleLogin = event => {
     console.log(formState);
-    history.push('/cidades');
+    history.push('/categorias');
   };
 
   const signInForm = (
@@ -105,6 +105,8 @@ function Login({ history }) {
 
 const StyledWrapper = styled.div`
   padding: 5vw;
+  max-width: 500px;
+  margin: 0 auto;
 
   & > img {
     display: block;

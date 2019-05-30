@@ -3,7 +3,12 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-import Page from '../app/Page';
+import {
+  slideInRight,
+  slideInLeft,
+  slideOutLeft,
+  slideOutRight,
+} from '../../utils/animations';
 
 function Steps({ children, step, onChangeStep, icons, action = 'forward' }) {
   const percentage = (step * 100) / (icons.length - 1);
@@ -25,13 +30,33 @@ function Steps({ children, step, onChangeStep, icons, action = 'forward' }) {
       <StyledWrapper step={step} className="steps">
         <TransitionGroup>
           <CSSTransition key={step} timeout={500} classNames="slide">
-            <Page reverse={action === 'backward'}>{children[step]}</Page>
+            <StyledSlider animation="slide" reverse={action === 'backward'}>
+              {children[step]}
+            </StyledSlider>
           </CSSTransition>
         </TransitionGroup>
       </StyledWrapper>
     </>
   );
 }
+
+const StyledSlider = styled.div`
+  &.slide-enter {
+    animation: ${props => (props.reverse ? slideInLeft : slideInRight)} 500ms
+      forwards;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &.slide-exit {
+    animation: ${props => (props.reverse ? slideOutRight : slideOutLeft)} 500ms
+      forwards;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+`;
 
 const StyledWrapper = styled.div`
   position: relative;
@@ -40,7 +65,7 @@ const StyledWrapper = styled.div`
 const StyledMarker = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: .5em 1em 0;
+  padding: 0.5em 1em 0;
   position: relative;
 
   &:before {

@@ -46,7 +46,7 @@ function Shell({
   };
 
   return (
-    <Page color={color} reverse={history.action === 'POP'}>
+    <Page color={color}>
       <StyledWrapper>
         <header className="mainHeader">
           <NavBar

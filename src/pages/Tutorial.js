@@ -10,6 +10,14 @@ import carousel2 from '../assets/images/tutorial-02.png';
 function Tutorial({ history }) {
   const [carousel, setCarousel] = React.useState(null);
 
+  const finishTutorial = () => history.push('/login');
+
+  React.useEffect(() => {
+    if (window.innerWidth > 450) {
+      finishTutorial();
+    }
+  }, []);
+
   const settings = {
     items: 1,
     slideBy: 'page',
@@ -24,11 +32,10 @@ function Tutorial({ history }) {
 
   const handleContinue = event => {
     if (carousel.slider.getInfo().index < 1) {
-      console.log(event);
       event.preventDefault();
       carousel.slider.goTo('next');
     } else {
-      history.push('/login');
+      finishTutorial();
     }
   };
 

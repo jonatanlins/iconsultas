@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 import {
   slideInRight,
@@ -8,9 +9,13 @@ import {
   slideOutRight,
 } from '../../utils/animations';
 
-function Page({ children, animation = 'slide', color = 'default', reverse }) {
+function Page({ children, animation = 'slide', color = 'default', history }) {
   return (
-    <StyledPage color={color} animation={animation} reverse={reverse}>
+    <StyledPage
+      color={color}
+      animation={animation}
+      reverse={history.action === 'POP'}
+    >
       {children}
     </StyledPage>
   );
@@ -24,6 +29,7 @@ const colors = {
 
 const StyledPage = styled.div`
   background-color: ${({ color }) => colors[color] || color || colors.default};
+  min-height: 100vh;
 
   &.slide-enter {
     animation: ${props => (props.reverse ? slideInLeft : slideInRight)} 500ms
@@ -42,4 +48,4 @@ const StyledPage = styled.div`
   }
 `;
 
-export default Page;
+export default withRouter(Page);
