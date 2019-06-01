@@ -777,7 +777,6 @@ hr {
   box-sizing: border-box;
   flex: 1 1 auto;
   width: 42%;
-  height: calc(50vw - 2em);
   margin: 0.5em;
   padding: 0.5em;
   border-radius: 0.5em;
@@ -795,8 +794,8 @@ hr {
 
 .categoryButtons .item svg {
   width: 100%;
-  font-size: 5em;
-  margin-top: 0.5em;
+  font-size: 3em;
+  margin: 0.5em 0 1em;
   color: #482ecc;
   display: block;
 }
@@ -831,19 +830,6 @@ hr {
   padding: 1.3em;
   box-sizing: border-box;
 }
-
-/* .moreCategoryButtons:not(.tns-slider) {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0.5em;
-}
-
-.moreCategoryButtons:not(.tns-slider) a {
-  display: flex;
-  flex: 1 1 30%;
-  flex-direction: column;
-  margin: 0.5em;
-} */
 
 .tutorialCarousel {
   overflow: hidden;
