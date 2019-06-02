@@ -774,6 +774,7 @@ hr {
 
 .categoryButtons .item {
   display: block;
+  position: relative;
   box-sizing: border-box;
   flex: 1 1 auto;
   width: 42%;
@@ -786,7 +787,10 @@ hr {
 }
 
 .categoryButtons .item .label {
-  display: block;
+  position: absolute;
+  left: 0.5em;
+  right: 0.5em;
+  top: 0.5em;
   color: #f50000;
   font-weight: bold;
   font-style: italic;
@@ -795,7 +799,7 @@ hr {
 .categoryButtons .item svg {
   width: 100%;
   font-size: 3em;
-  margin: 0.5em 0 1em;
+  margin: 1em 0;
   color: #482ecc;
   display: block;
 }
