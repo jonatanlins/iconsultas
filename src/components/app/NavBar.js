@@ -1,7 +1,19 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 
+const cities = {
+  recife: 'Recife',
+  gravata: 'Gravatá',
+  caruaru: 'Caruaru',
+  santacruz: 'Santa Cruz do Capibaribe',
+  palmares: 'Palmares',
+  petrolina: 'Petrolina',
+};
+
 function NavBar({ history, swicthMainMenu, swicthCitySelection, title }) {
+  const city = useSelector(state => state.session.city);
+
   return (
     <div className="navBar">
       <button onClick={history.goBack}>
@@ -14,7 +26,7 @@ function NavBar({ history, swicthMainMenu, swicthCitySelection, title }) {
         <span className="title">{title}</span>
       ) : (
         <button onClick={swicthCitySelection} className="title">
-          <span className="cityName">Cidade</span>
+          <span className="cityName">{cities[city]}</span>
           <i className="icon-down-dir" />
         </button>
       )}

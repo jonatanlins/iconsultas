@@ -10,7 +10,7 @@ import carousel2 from '../assets/images/tutorial-02.png';
 function Tutorial({ history }) {
   const [carousel, setCarousel] = React.useState(null);
 
-  const finishTutorial = () => history.push('/login');
+  const finishTutorial = () => history.replace('/login');
 
   React.useEffect(() => {
     if (window.innerWidth > 450) {

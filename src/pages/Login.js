@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { useFormState } from 'react-use-form-state';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,25 +16,38 @@ import iConsultasLogo from '../assets/images/logo-titulo.png';
 function Login({ history }) {
   const [formState, { text, email, password }] = useFormState();
   const [mode, setMode] = React.useState('signIn');
+  const dispatch = useDispatch();
 
-  const handleLogin = event => {
-    console.log(formState);
-    history.push('/categorias');
+  const handleSignIn = event => {
+    const { email, password } = formState.values;
+
+    dispatch({ type: 'SIGN_IN', email, password });
+
+    history.replace('/');
+  };
+
+  const handleSignUp = event => {
+    dispatch({ type: 'SIGN_UP', data: formState.values });
+
+    history.replace('/');
+  };
+
+  const handleFacebook = () => {
+    dispatch({ type: 'LOGIN_WITH_FACEBOOK' });
+
+    history.replace('/');
   };
 
   const signInForm = (
     <StyledForm>
-      <Input label="Email" type="email" icon="envelope" {...email('email')} />
-      <Input
-        label="Senha"
-        type="password"
-        icon="lock"
-        {...password('password')}
-      />
-      <Button onClick={handleLogin} className="actionButton">
+      <Input label="Email" icon="envelope" {...email('email')} />
+      <Input label="Senha" icon="lock" {...password('password')} />
+
+      <Button onClick={handleSignIn} className="actionButton">
         Entrar
       </Button>
-      <Button onClick={handleLogin} className="actionButton" color="#3c4c84">
+
+      <Button onClick={handleFacebook} className="actionButton" color="#3c4c84">
         <FontAwesomeIcon icon={faFacebookF} />
         Login com Facebook
       </Button>
@@ -45,27 +59,22 @@ function Login({ history }) {
 
   const signUpForm = (
     <StyledForm>
-      <Button onClick={handleLogin} className="actionButton" color="#3c4c84">
-        <FontAwesomeIcon icon={faFacebookF} />
-        Login com Facebook
-      </Button>
-
-      <Input label="Nome" type="email" icon="user" {...text('name')} />
-      <Input label="Email" type="email" icon="envelope" {...email('email')} />
-      <Input
-        label="Senha"
-        type="password"
-        icon="lock"
-        {...password('password')}
-      />
+      <Input label="Nome" icon="user" {...text('name')} />
+      <Input label="Email" icon="envelope" {...email('email')} />
+      <Input label="Senha" icon="lock" {...password('password')} />
       <Input
         label="Digite a senha novamente"
-        type="password"
         icon="lock"
         {...password('confirmPassword')}
       />
-      <Button onClick={handleLogin} className="actionButton">
+
+      <Button onClick={handleSignUp} className="actionButton">
         Cadastre-se
+      </Button>
+
+      <Button onClick={handleFacebook} className="actionButton" color="#3c4c84">
+        <FontAwesomeIcon icon={faFacebookF} />
+        Login com Facebook
       </Button>
     </StyledForm>
   );

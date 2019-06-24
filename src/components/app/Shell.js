@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import Carousel from 'tiny-slider-react';
 
@@ -33,6 +34,7 @@ function Shell({
 }) {
   const [mainMenuState, setMainMenuState] = React.useState(false);
   const [citySelectionState, setCitySelectionState] = React.useState(false);
+  const dispatch = useDispatch();
 
   const carouselSettings = {
     items: 1,
@@ -43,6 +45,11 @@ function Shell({
     mouseDrag: true,
     autoplay: true,
     autoplayButtonOutput: false,
+  };
+
+  const selectCity = city => () => {
+    setCitySelectionState(false);
+    dispatch({ type: 'SELECT_CITY', city });
   };
 
   return (
@@ -113,12 +120,15 @@ function Shell({
           active={citySelectionState}
           close={() => setCitySelectionState(false)}
           content={[
-            { name: 'Recife', action: () => 'recife' },
-            { name: 'Gravatá', action: () => 'gravata' },
-            { name: 'Caruaru', action: () => 'caruaru' },
-            { name: 'Santa Cruz do Capibaribe', action: () => 'santacruz' },
-            { name: 'Palmares', action: () => 'palmares' },
-            { name: 'Petrolina', action: () => 'petrolina' },
+            { name: 'Recife', action: selectCity('recife') },
+            { name: 'Gravatá', action: selectCity('gravata') },
+            { name: 'Caruaru', action: selectCity('caruaru') },
+            {
+              name: 'Santa Cruz do Capibaribe',
+              action: selectCity('santacruz'),
+            },
+            { name: 'Palmares', action: selectCity('palmares') },
+            { name: 'Petrolina', action: selectCity('petrolina') },
           ]}
         />
       </StyledWrapper>
