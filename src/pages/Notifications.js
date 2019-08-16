@@ -1,5 +1,8 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { Creators as NotificationsActions } from '../store/ducks/notifications';
 
 import Shell from '../components/app/Shell';
 
@@ -8,64 +11,46 @@ import warningIcon from '../assets/icons/warning.png';
 import questionIcon from '../assets/icons/question.png';
 import discountsIcon from '../assets/icons/discounts.png';
 
+const icons = {
+  check: checkIcon,
+  warning: warningIcon,
+  discounts: discountsIcon,
+  question: questionIcon,
+};
+
 function Notifications() {
-  const notifications = [
-    {
-      id: 463,
-      icon: checkIcon,
-      text: (
-        <>
-          Sua consulta com <b>Dr. Rodrigo Arruda</b> foi confirmada, confira os
-          detalhes.
-        </>
-      ),
-    },
-    {
-      id: 426,
-      icon: warningIcon,
-      text: (
-        <>
-          Sua consulta com <b>Dr. Rodrigo Arruda</b> teve uma alteração, confira
-          os detalhes.
-        </>
-      ),
-    },
-    {
-      id: 242,
-      icon: questionIcon,
-      text: (
-        <>
-          <b>Felipe</b>, como foi sua consulta com <b>Dr. Rodrigo Arruda</b>?
-          ajude-nos a melhorar sua experiência.
-        </>
-      ),
-    },
-    {
-      id: 876,
-      icon: discountsIcon,
-      text: (
-        <>
-          Olá <b>Felipe</b>, a <b>Droga Rocha</b> enviou uma oferta para você,
-          confira!
-        </>
-      ),
-    },
-  ];
+  const dispatch = useDispatch();
+  const notifications = useSelector(state => state.notifications.data);
+
+  React.useEffect(() => {
+    dispatch(NotificationsActions.notificationsRequest());
+  }, []);
 
   return (
     <Shell title="Notificações">
-      <ul className="notificationList">
-        {notifications.map(({ id, icon, text }) => (
-          <li key={id}>
-            <Link to="">
-              <img src={icon} alt="Ícone" className="icon" />
-              <span className="content">{text}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <StyledWrapper>
+        <StyledList className="notificationList">
+          {notifications.map(({ id, type, text }) => (
+            <li key={id}>
+              <Link to="">
+                <img src={icons[type]} alt="Ícone" className="icon" />
+                <span className="content">{text}</span>
+              </Link>
+            </li>
+          ))}
+        </StyledList>
+      </StyledWrapper>
     </Shell>
   );
 }
+
+const StyledWrapper = styled.div`
+  max-width: 600px;
+  margin: 0 auto;
+`;
+
+const StyledList = styled.ul`
+  list-style: none;
+`;
 
 export default Notifications;

@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { useFormState } from 'react-use-form-state';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Creators as AuthActions } from '../store/ducks/auth';
 
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 
@@ -21,19 +22,19 @@ function Login({ history }) {
   const handleSignIn = event => {
     const { email, password } = formState.values;
 
-    dispatch({ type: 'SIGN_IN', email, password });
+    dispatch(AuthActions.signIn({ email, password }));
 
     history.replace('/');
   };
 
   const handleSignUp = event => {
-    dispatch({ type: 'SIGN_UP', data: formState.values });
+    dispatch(AuthActions.signUp(formState.values));
 
     history.replace('/');
   };
 
   const handleFacebook = () => {
-    dispatch({ type: 'LOGIN_WITH_FACEBOOK' });
+    dispatch(AuthActions.loginWithFacebook());
 
     history.replace('/');
   };
